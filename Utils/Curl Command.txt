@@ -1,0 +1,19 @@
+
+curl -v -X POST https://api.line.me/v2/bot/richmenu/richmenu-086969c9109d74851ba4ac2e4f8868a8/content -H "Authorization: Bearer o7QzwyoiRRAbnd0Ylquyd9BgFSP88lcRdo3Oy9HBBEP1Wq2C5oTKiiLC8LkCo2wNVYSLUvqxsmuY5RBVn3xjyFxm913dEQW6xPI1j6lvABZiV21xlLx8ifPyMrma2VJYu37dzVa/Xyp5oIysTAJ6wwdB04t89/1O/w1cDnyilFU=" -H "Content-Type: image/jpeg" -T appinline_design.jpg
+
+
+
+
+curl -v -X DELETE https://api.line.me/v2/bot/richmenu/richmenu-39386b240961b5c562f6914a88d59e0b -H "Authorization: Bearer o7QzwyoiRRAbnd0Ylquyd9BgFSP88lcRdo3Oy9HBBEP1Wq2C5oTKiiLC8LkCo2wNVYSLUvqxsmuY5RBVn3xjyFxm913dEQW6xPI1j6lvABZiV21xlLx8ifPyMrma2VJYu37dzVa/Xyp5oIysTAJ6wwdB04t89/1O/w1cDnyilFU="
+
+
+
+curl -X POST https://api.line.me/liff/v1/apps \
+-H "Authorization: Bearer o7QzwyoiRRAbnd0Ylquyd9BgFSP88lcRdo3Oy9HBBEP1Wq2C5oTKiiLC8LkCo2wNVYSLUvqxsmuY5RBVn3xjyFxm913dEQW6xPI1j6lvABZiV21xlLx8ifPyMrma2VJYu37dzVa/Xyp5oIysTAJ6wwdB04t89/1O/w1cDnyilFU=" \
+-H "Content-Type: application/json" \
+-d '{
+  "view":{
+    "type":"compact",
+    "url":"https://powerful-ridge-10601.herokuapp.com/liffTest/"
+  }
+}'
