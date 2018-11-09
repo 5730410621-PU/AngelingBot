@@ -50,7 +50,7 @@ $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]." status:".$row["status"]." start_time:".$row["start_time"]." end_time:".$row["end_time"]." action: ".$row["action"]." state: ".$row["state"]. "<br>";
+        echo "id: " . $row["id"]."uid: " . $row["u_id"]." status:".$row["status"]." start_time:".$row["start_time"]." end_time:".$row["end_time"]." action: ".$row["action"]." state: ".$row["state"]. "<br>";
     }
 } else {
     echo "0 results\n\n";
@@ -75,7 +75,7 @@ if ($result->num_rows > 0) {
 
 
 /*
-$sql = "DELETE FROM open_session WHERE action IN ('Report')";
+$sql = "DELETE FROM open_session WHERE status IN ('1')";
 if ($conn->query($sql) === TRUE) {
     $result =  "Delete complete!!";
 } else {

@@ -29,7 +29,7 @@ function routing($id,$message,$type){
     $gid =$row["id"];
     $action = $row["action"];
     $state = $row["state"];
-
+    return $action;
     if($action == "Ar/Vr"){
         arManagement($id,$state,$message,$type);
     }
@@ -41,7 +41,7 @@ function routing($id,$message,$type){
     return "กรุณากดเมนูข้างล่างก่อนครับ";
 }
 
-function arManagement($id,$action,$state,$message,$type){
+function arManagement($id,$state,$message,$type){
     $conn = sql();
     if($state == 0){
         $sql = "UPDATE open_session SET state = 1 WHERE u_id = '$id' AND status = '1'";
