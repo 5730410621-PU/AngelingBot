@@ -2,13 +2,12 @@
 
 /////// Add RichMenu Image  /////////////
 
-curl -v -X POST https://api.line.me/v2/bot/richmenu/richmenu-086969c9109d74851ba4ac2e4f8868a8/content -H "Authorization: Bearer o7QzwyoiRRAbnd0Ylquyd9BgFSP88lcRdo3Oy9HBBEP1Wq2C5oTKiiLC8LkCo2wNVYSLUvqxsmuY5RBVn3xjyFxm913dEQW6xPI1j6lvABZiV21xlLx8ifPyMrma2VJYu37dzVa/Xyp5oIysTAJ6wwdB04t89/1O/w1cDnyilFU=" -H "Content-Type: image/jpeg" -T appinline
-.jpg
+curl -v -X POST https://api.line.me/v2/bot/richmenu/richmenu-3cab2b0aebde5256deb358775b95e2d0/content -H "Authorization: Bearer uUE/X13a2XpVT0CAFsl+x3PTTxcFwHvYsrF2Mg8Vt5LAwEI8/v6To55m+cDqoj8iKTYQ9QHndnGYHRuB3ZXwGSwsAmoKcNzS1nWx1vGZ3vPp3KNwi0eWuxSz4AfkuH0fP2wUt5pwgfZsCKZRJp52CgdB04t89/1O/w1cDnyilFU=" -H "Content-Type: image/jpeg" -T appinline.jpg
 
 
 
 //////// Delete RIch Menu ///////////////////////////
-curl -v -X DELETE https://api.line.me/v2/bot/richmenu/richmenu-39386b240961b5c562f6914a88d59e0b -H "Authorization: Bearer o7QzwyoiRRAbnd0Ylquyd9BgFSP88lcRdo3Oy9HBBEP1Wq2C5oTKiiLC8LkCo2wNVYSLUvqxsmuY5RBVn3xjyFxm913dEQW6xPI1j6lvABZiV21xlLx8ifPyMrma2VJYu37dzVa/Xyp5oIysTAJ6wwdB04t89/1O/w1cDnyilFU="
+curl -v -X DELETE https://api.line.me/v2/bot/richmenu/richmenu-39386b240961b5c562f6914a88d59e0b -H "Authorization: Bearer uUE/X13a2XpVT0CAFsl+x3PTTxcFwHvYsrF2Mg8Vt5LAwEI8/v6To55m+cDqoj8iKTYQ9QHndnGYHRuB3ZXwGSwsAmoKcNzS1nWx1vGZ3vPp3KNwi0eWuxSz4AfkuH0fP2wUt5pwgfZsCKZRJp52CgdB04t89/1O/w1cDnyilFU="
 
 
 //////// LIFF app in line //////////////////////////

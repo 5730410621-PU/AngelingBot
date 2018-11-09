@@ -83,7 +83,7 @@ else if($message == "setRichMenu"){
 }
 
 //////////////////////// Start User Process  /////////////////////////////////
-/*
+
 if($type == "postback"){
 
 	$action = substr($arrayJson['events'][0]['postback']['data'],7);
@@ -117,16 +117,18 @@ if($type == "postback"){
 		replyMsg($arrayHeader,$arrayPostData);
 	}
 	else if($action == "Ar/Vr"){
+		openSession($id,$action);
 		$arrayPostData['replyToken'] = $replyToken;
 		$arrayPostData['messages'][0]['type'] = "text";
-		$arrayPostData['messages'][0]['text'] = "ทดสอบระบบ Ar และ Vr กันเลย";
+		$arrayPostData['messages'][0]['text'] = "อัพโหลดภาพของท่านได้เลย";
 		//print_r (openSession($id,$action));
 		replyMsg($arrayHeader,$arrayPostData);
 	}
 	else if($action == "Report"){
+		openSession($id,$action);
 		$arrayPostData['replyToken'] = $replyToken;
 		$arrayPostData['messages'][0]['type'] = "text";
-		$arrayPostData['messages'][0]['text'] = openSession($id,$action);
+		$arrayPostData['messages'][0]['text'] =	"กรุณาแจ้งปัญหากับทางเรา หลังจากแจ้งแล้วพิมพ์ข้อความ\n### \nเพื่อจบการแจ้งปัญหาครับ";
 		//print_r (openSession($id,$action));
 		replyMsg($arrayHeader,$arrayPostData);
 	}
@@ -152,12 +154,12 @@ else if($type == "message"){
 		
 		$arrayPostData['replyToken'] = $replyToken;
 		$arrayPostData['messages'][0]['type'] = "text";
-		$arrayPostData['messages'][0]['text'] = storeImageVideoData($id,$accessHeader,$imgVideoId,$typeMessage);
+		$arrayPostData['messages'][0]['text'] = routing($id,$accessHeader,$imgVideoId,$typeMessage);
 		//$arrayPostData['messages'][0]['text'] = 'test message type';
 		replyMsg($arrayHeader,$arrayPostData);
 	}
 }
-*/
+
 //////////////////////// End User Process  /////////////////////////////////
 
 echo "Hello";

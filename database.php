@@ -8,16 +8,14 @@ function openSession($id,$action){
     $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
     $isOpened = $conn->query($sql);
     if($isOpened ->num_rows == 0){ 
-    $status = '1';
-    $sql = "INSERT INTO open_session (u_id,action,status) VALUES ('$id','$action','$status')";
+        $status = '1';
+        $sql = "INSERT INTO open_session (u_id,action,status) VALUES ('$id','$action','$status')";
 
-    if ($conn->query($sql) === TRUE) {
-        $result =  "กรุณาแจ้งปัญหากับทางเรา หลังจากแจ้งแล้วพิมพ์ข้อความ\n### \nเพื่อจบการแจ้งปัญหาครับ";
-    } else {
-        $result = "Error: ".$conn->error;
-    }
-    }else{
-        $result = "คุณได้อยู่ในสถานะแจ้งปัญหาเรียบร้อยแล้ว กรุณาแจ้งปัญหาได้เลยครับ";
+        if ($conn->query($sql) === TRUE) {
+            $result =  "";
+        } else {
+            $result = "Error: ".$conn->error;
+        }
     }
     $conn->close();
     return $result;
@@ -40,6 +38,22 @@ function closeSession($id){
 
 }
 
+function routingImgVideo($id,$accessHeader,$imgVideoId,$typeMessage){
+    $conn = sql();
+    $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
+    $linkId = $conn->query($sql);
+    $row = $linkId->fetch_assoc();
+    $gid =$row["id"];
+    $action = $row["action"];
+
+    if($action == "Report"){
+        storeImageVideoData($id,$accessHeader,$imgVideoId,$typeMessage);
+    }
+    else if ($action == "Ar/Vr"){
+        return "Thank";
+    }
+}
+
 function storeMessageData($id,$type,$message){
     $conn = sql();
     $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
@@ -54,8 +68,7 @@ function storeMessageData($id,$type,$message){
 }
 
 function storeImageVideoData($id,$header,$imgId,$typeMessage){
-    
-    
+     
     $conn = sql();
     $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
     $linkId = $conn->query($sql);
