@@ -142,9 +142,12 @@ if($type == "postback"){
 
 else if($type == "message"){
 
+	if($typeMessage == "image" || $typeMessage == "video"){
+		$message = $arrayJson['events'][0]['message']['id'];
+	}
 	$arrayPostData['replyToken'] = $replyToken;
 	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = routing($id);
+	$arrayPostData['messages'][0]['text'] = routing($id,$message,$typeMessage);
 	replyMsg($arrayHeader,$arrayPostData);
 
 	/*

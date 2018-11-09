@@ -20,7 +20,7 @@ function openSession($id,$action){
     $conn->close();
     return $result;
 }
-
+/*
 function closeSession($id){
     $conn = sql();
     $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
@@ -36,8 +36,9 @@ function closeSession($id){
     }
     $conn->close();
 }
+*/
 
-function routing($id){
+function routing($id,$message,$type){
     $conn = sql();
     $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
     $linkId = $conn->query($sql);
@@ -45,10 +46,28 @@ function routing($id){
     $gid =$row["id"];
     $action = $row["action"];
     $state = $row["state"];
-    if($action != null)
-    return "คุณอยู่ในสถานะ:"." $action"." ตำแหน่งปัจจุบันของคุณคือ :"." $state";
+
+    if($action == "Ar/Vr"){
+        arManagement($id,$state,$message,$type);
+    }
+    
+    else if($action != NULL){
+        return "คุณอยู่ในสถานะ:"." $action"." ตำแหน่งปัจจุบันของคุณคือ :"." $state";
+    }
     else
     return "กรุณากดเมนูข้างล่างก่อนครับ";
+}
+
+function arManagement($id,$action,$state,$message,$type){
+    $conn = sql();
+    if($state == 0){
+        $sql = "UPDATE open_session SET state = 1 WHERE u_id = '$id' AND status = '1'";
+        $conn->query($sql);
+        return "กรุณาเพิ่ม tag ที่ต้องการได้เลย\n1. #ประเทศกูมี\n2. #RapThailand4.0\n3. #คุกกี้เสี่ยงทาย\n4. #คุกกี้เสี่ยงคุก";
+    }
+    else if($state == 1){
+        
+    }
 }
 /*
 function routingImgVideo($id,$accessHeader,$imgVideoId,$typeMessage){
