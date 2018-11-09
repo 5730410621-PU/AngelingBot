@@ -20,23 +20,6 @@ function openSession($id,$action){
     $conn->close();
     return $result;
 }
-/*
-function closeSession($id){
-    $conn = sql();
-    $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
-    $isOpened = $conn->query($sql);
-    if($isOpened ->num_rows != 0){
-        $dateNow = date("Y-m-d H:i:s");
-        $sql = "UPDATE open_session SET end_time = '$dateNow' ,status = '0' WHERE u_id = '$id' AND status = '1'";
-        if ($conn->query($sql) === TRUE) {
-            return "เราได้รับปัญหาแล้ว ทางเราจะทำการดำเนินการให้ไวที่สุด ขอบคุณสำหรับการแจ้งปัญหาครับ";
-        } else {
-            return "Error: ".$conn->error;
-        }
-    }
-    $conn->close();
-}
-*/
 
 function routing($id,$message,$type){
     $conn = sql();
@@ -66,8 +49,28 @@ function arManagement($id,$action,$state,$message,$type){
         return "กรุณาเพิ่ม tag ที่ต้องการได้เลย\n1. #ประเทศกูมี\n2. #RapThailand4.0\n3. #คุกกี้เสี่ยงทาย\n4. #คุกกี้เสี่ยงคุก";
     }
     else if($state == 1){
-        
+        $sql = "UPDATE open_session SET state = 2 WHERE u_id = '$id' AND status = '1'";
+        $conn->query($sql);
+        return "อดใจรอ ระบบกำลังประมวลผล...";
     }
+    else if($state == 2){
+        $dateNow = date("Y-m-d H:i:s");
+        $sql = "UPDATE open_session SET end_time = '$dateNow' ,status = '0' WHERE u_id = '$id' AND status = '1'";
+        $conn->query($sql);
+        return "ทำการแชร์เรียบร้อย";
+    }
+}
+
+function closeSession($id){
+    $conn = sql();
+    $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
+    $isOpened = $conn->query($sql);
+    if($isOpened ->num_rows != 0){
+        $dateNow = date("Y-m-d H:i:s");
+        $sql = "UPDATE open_session SET end_time = '$dateNow' ,status = '0' WHERE u_id = '$id' AND status = '1'";
+        $conn->query($sql);
+    }
+    $conn->close();
 }
 /*
 function routingImgVideo($id,$accessHeader,$imgVideoId,$typeMessage){
