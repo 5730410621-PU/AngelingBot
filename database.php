@@ -31,7 +31,7 @@ function routing($id,$message,$type){
     $state = $row["state"];
     
     if($action == "Ar/Vr"){
-        arManagement($id,$state,$message);
+        return arManagement($id,$state,$message);
     }
     /*
     else if($action != NULL){
