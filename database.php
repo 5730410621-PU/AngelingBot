@@ -9,7 +9,7 @@ function openSession($id,$action){
     $isOpened = $conn->query($sql);
     if($isOpened ->num_rows == 0){ 
         $status = '1';
-        $state = '0';
+        $state = 0;
         $sql = "INSERT INTO open_session (u_id,action,status,state) VALUES ('$id','$action','$status','$state')";
 
         if ($conn->query($sql) === TRUE) {
