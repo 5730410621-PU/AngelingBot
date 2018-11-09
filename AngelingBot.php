@@ -170,3 +170,5 @@ else if($type == "message"){
 	}
 }
 //////////////////////// End User Process  /////////////////////////////////
+
+echo "Hello";
