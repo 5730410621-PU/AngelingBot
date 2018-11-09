@@ -69,29 +69,6 @@ else if($message == "createRichMenu"){
 	}
 }
 
-//////////////// Upload Rich Menu Image ///////////////////
-
-else if($message == "uploadImage"){
-	
-	$richId = getRichMenu($arrayHeader);
-	$uploaded = uploadImage($imageArrayHeader,$richId);
-
-	if($uploaded != null){
-		$arrayPostData['replyToken'] = $replyToken;
-		$arrayPostData['messages'][0]['type'] = "text";
-		$arrayPostData['messages'][0]['text'] = $uploaded;
-		ReplyMsg($arrayHeader,$arrayPostData);
-	} 
-	else{
-		$arrayPostData['replyToken'] = $replyToken;
-		$arrayPostData['messages'][0]['type'] = "text";
-		$arrayPostData['messages'][0]['text'] = "Fail to upload";
-		ReplyMsg($arrayHeader,$arrayPostData);
-	}
-}
-
-
-
 /////////////////////Set Rich Menu /////////////////////////////
 
 else if($message == "setRichMenu"){
