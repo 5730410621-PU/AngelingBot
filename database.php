@@ -1,6 +1,8 @@
 <?php
 
 include 'config.php' ;
+include 'ar.php';
+include 'report.php';
 
 function openSession($id,$action){
     $conn = sql();
@@ -33,47 +35,15 @@ function routing($id,$message,$type){
     if($action == "Ar/Vr"){
         return arManagement($id,$state,$message);
     }
-    /*
-    else if($action != NULL){
-        return "คุณอยู่ในสถานะ:"." $action"." ตำแหน่งปัจจุบันของคุณคือ :"." $state";
+    
+    else if($action == 'Report'){
+        return reportManagement($id,$message,$type);
     }
-    */
+    
     else
     return "กรุณากดเมนูข้างล่างก่อนครับ";
 }
 
-function arManagement($id,$state,$message){
-    $conn = sql();
-    if($state == 0){
-        $sql = "UPDATE open_session SET state = 1 WHERE u_id = '$id' AND status = '1'";
-        $conn->query($sql);
-        return "กรุณาเพิ่ม tag ที่ต้องการได้เลย\n1. #ประเทศกูมี\n2. #RapThailand4.0\n3. #คุกกี้เสี่ยงทาย\n4. #คุกกี้เสี่ยงคุก";
-    }
-    else if($state == 1){
-        $sql = "UPDATE open_session SET state = 2 WHERE u_id = '$id' AND status = '1'";
-        $conn->query($sql);
-        return "อดใจรอ ระบบกำลังประมวลผล...";
-    }
-    else if($state == 2){
-        $dateNow = date("Y-m-d H:i:s");
-        $sql = "UPDATE open_session SET end_time = '$dateNow' ,status = '0' WHERE u_id = '$id' AND status = '1'";
-        $conn->query($sql);
-        return "ทำการแชร์เรียบร้อย";
-    }
-
-}
-
-function closeSession($id){
-    $conn = sql();
-    $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
-    $isOpened = $conn->query($sql);
-    if($isOpened ->num_rows != 0){
-        $dateNow = date("Y-m-d H:i:s");
-        $sql = "UPDATE open_session SET end_time = '$dateNow' ,status = '0' WHERE u_id = '$id' AND status = '1'";
-        $conn->query($sql);
-    }
-    $conn->close();
-}
 /*
 function routingImgVideo($id,$accessHeader,$imgVideoId,$typeMessage){
     $conn = sql();
