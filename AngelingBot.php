@@ -38,7 +38,7 @@ if($message == "reply"){
 }
 
 ////////////////// Get Rich Menu ////////////////////////
-
+/*
 else if($message == "showRichMenu"){
 
 	$RichMenuId = getRichMenu($arrayHeader);
@@ -96,7 +96,7 @@ if($message == "News"){
 
 
 //////////////////////// Start User Process  /////////////////////////////////
-/*
+
 if($type == "postback"){
 
 	$action = substr($arrayJson['events'][0]['postback']['data'],7);
