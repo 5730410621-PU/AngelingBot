@@ -29,7 +29,7 @@ function routing($id,$message,$type){
     $gid =$row["id"];
     $action = $row["action"];
     $state = $row["state"];
-    return $action;
+    
     if($action == "Ar/Vr"){
         arManagement($id,$state,$message,$type);
     }
