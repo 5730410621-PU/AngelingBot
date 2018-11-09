@@ -20,7 +20,7 @@ function openSession($id,$action){
     $conn->close();
     return $result;
 }
-
+echo arManagement("U838a39141a56615db66e65c954e5a036",0,"Hello");
 function routing($id,$message,$type){
     $conn = sql();
     $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
@@ -31,17 +31,18 @@ function routing($id,$message,$type){
     $state = $row["state"];
     
     if($action == "Ar/Vr"){
-        arManagement($id,$state,$message,$type);
+        arManagement($id,$state,$message);
     }
-    
+    /*
     else if($action != NULL){
         return "คุณอยู่ในสถานะ:"." $action"." ตำแหน่งปัจจุบันของคุณคือ :"." $state";
     }
+    */
     else
     return "กรุณากดเมนูข้างล่างก่อนครับ";
 }
 
-function arManagement($id,$state,$message,$type){
+function arManagement($id,$state,$message){
     $conn = sql();
     if($state == 0){
         $sql = "UPDATE open_session SET state = 1 WHERE u_id = '$id' AND status = '1'";
@@ -59,6 +60,7 @@ function arManagement($id,$state,$message,$type){
         $conn->query($sql);
         return "ทำการแชร์เรียบร้อย";
     }
+    echo "still in ar";
 }
 
 function closeSession($id){
