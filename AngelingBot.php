@@ -37,7 +37,7 @@ if($message == "reply"){
 }
 
 ////////////////// Get Rich Menu ////////////////////////
-/*
+
 else if($message == "showRichMenu"){
 
 	$RichMenuId = getRichMenu($arrayHeader);
@@ -82,20 +82,8 @@ else if($message == "setRichMenu"){
 	ReplyMsg($arrayHeader,$arrayPostData);
 }
 
-/////////////////// Rich Reply Menu ///////////////////////
-
-if($message == "News"){
-	$image_url = "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg";
-	$arrayPostData['replyToken'] = $replyToken;
-	$arrayPostData['messages'][0]['type'] = "image";
-	$arrayPostData['messages'][0]['originalContentUrl'] = $image_url;
-	$arrayPostData['messages'][0]['previewImageUrl'] = $image_url;
-	replyMsg($arrayHeader,$arrayPostData);
-}
-
-
 //////////////////////// Start User Process  /////////////////////////////////
-
+/*
 if($type == "postback"){
 
 	$action = substr($arrayJson['events'][0]['postback']['data'],7);
