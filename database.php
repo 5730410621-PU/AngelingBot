@@ -20,7 +20,7 @@ function openSession($id,$action){
     $conn->close();
     return $result;
 }
-echo arManagement("U838a39141a56615db66e65c954e5a036",0,"Hello");
+
 function routing($id,$message,$type){
     $conn = sql();
     $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";

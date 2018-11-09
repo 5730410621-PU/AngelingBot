@@ -147,7 +147,7 @@ else if($type == "message"){
 	}
 	$arrayPostData['replyToken'] = $replyToken;
 	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = routing($id,$message,$typeMessage);
+	$arrayPostData['messages'][0]['text'] = "routing($id,$message,$typeMessage)";
 	replyMsg($arrayHeader,$arrayPostData);
 
 	/*
