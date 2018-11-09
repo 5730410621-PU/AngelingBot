@@ -96,7 +96,7 @@ if($message == "News"){
 
 
 //////////////////////// Start User Process  /////////////////////////////////
-
+/*
 if($type == "postback"){
 
 	$action = substr($arrayJson['events'][0]['postback']['data'],7);
@@ -170,6 +170,7 @@ else if($type == "message"){
 		replyMsg($arrayHeader,$arrayPostData);
 	}
 }
+*/
 //////////////////////// End User Process  /////////////////////////////////
 
 echo "Hello";
