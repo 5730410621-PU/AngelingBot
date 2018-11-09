@@ -44,14 +44,16 @@ if ($conn->query($sql) === TRUE) {
 echo "result ::".$result;
 */
 
-
+$count = 0;
 $sql = "SELECT * FROM open_session";
 $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
         echo "id: " . $row["id"]."uid: " . $row["u_id"]." status:".$row["status"]." start_time:".$row["start_time"]." end_time:".$row["end_time"]." action: ".$row["action"]." state: ".$row["state"]. "<br>";
+        $count = $count + 1;
     }
+    echo "$count results";
 } else {
     echo "0 results\n\n";
 }
