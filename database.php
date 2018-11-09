@@ -33,11 +33,11 @@ function routing($id,$message,$type){
     $state = $row["state"];
     
     if($action == "Ar/Vr"){
-        return arManagement($id,$state,$message);
+        return arManagement($conn,$id,$state,$message);
     }
     
     else if($action == 'Report'){
-        return reportManagement($id,$message,$type);
+        return reportManagement($conn,$id,$message,$type,$gid);
     }
     
     else

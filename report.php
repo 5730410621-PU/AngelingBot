@@ -1,7 +1,5 @@
 <?php
-
-function reportManagement($id,$message,$type){
-    $conn = sql();
+function reportManagement($conn,$id,$message,$type,$gid){
 
     if($message == "###"){
         $dateNow = date("Y-m-d H:i:s");
@@ -11,13 +9,18 @@ function reportManagement($id,$message,$type){
     }else{
 
         if($type == "text"){
-            return "text type ได้รับการบรรจุ";
+            $sql = "INSERT INTO log (u_id,g_id,type,message) VALUES ('$id','$gid','$type','$message')";
+            $conn->query($sql); 
         }
         else if($type == "image"){
-            return "image type ได้รับการบรรจุ";
+            $path = "/storage/video/$imgId.jpg";
+            $sql = "INSERT INTO log (u_id,g_id,type,message) VALUES ('$id','$gid','$type','$path')";
+            $conn->query($sql);
         }
         else if($type == "video"){
-            return "video type ได้รับการบรรจุ";
+            $path = "/storage/video/$imgId.mp4";
+            $sql = "INSERT INTO log (u_id,g_id,type,message) VALUES ('$id','$gid','$type','$path')";
+            $conn->query($sql);
         }
 
     }

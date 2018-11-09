@@ -58,7 +58,7 @@ if ($result->num_rows > 0) {
     echo "0 results\n\n";
 }
 
-/*
+
 $sql = "SELECT * FROM log";
 $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
@@ -69,7 +69,7 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
-*/
+
 
 
 //echo "Result :: ".scandir('/app');

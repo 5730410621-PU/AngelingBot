@@ -1,8 +1,8 @@
 <?php
 
 
-function arManagement($id,$state,$message){
-    $conn = sql();
+function arManagement($conn,$id,$state,$message){
+    
     if($state == 0){
         $sql = "UPDATE open_session SET state = 1 WHERE u_id = '$id' AND status = '1'";
         $conn->query($sql);
