@@ -142,6 +142,12 @@ if($type == "postback"){
 
 else if($type == "message"){
 
+	$arrayPostData['replyToken'] = $replyToken;
+	$arrayPostData['messages'][0]['type'] = "text";
+	$arrayPostData['messages'][0]['text'] = routing($id);
+	replyMsg($arrayHeader,$arrayPostData);
+
+	/*
 	if($typeMessage == "text" && $message == "###"){
 		$arrayPostData['replyToken'] = $replyToken;
 		$arrayPostData['messages'][0]['type'] = "text";
@@ -162,6 +168,7 @@ else if($type == "message"){
 		//$arrayPostData['messages'][0]['text'] = 'test message type';
 		replyMsg($arrayHeader,$arrayPostData);
 	}
+	*/
 }
 
 //////////////////////// End User Process  /////////////////////////////////

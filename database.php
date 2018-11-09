@@ -11,7 +11,6 @@ function openSession($id,$action){
         $status = '1';
         $state = 0;
         $sql = "INSERT INTO open_session (u_id,action,status,state) VALUES ('$id','$action','$status','$state')";
-
         if ($conn->query($sql) === TRUE) {
             $result =  "";
         } else {
@@ -36,9 +35,22 @@ function closeSession($id){
         }
     }
     $conn->close();
-
 }
 
+function routing($id){
+    $conn = sql();
+    $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
+    $linkId = $conn->query($sql);
+    $row = $linkId->fetch_assoc();
+    $gid =$row["id"];
+    $action = $row["action"];
+    $state = $row["state"];
+    if($action != null)
+    return "คุณอยู่ในสถานะ:"." $action"." ตำแหน่งปัจจุบันของคุณคือ :"." $state";
+    else
+    return "กรุณากดเมนูข้างล่างก่อนครับ";
+}
+/*
 function routingImgVideo($id,$accessHeader,$imgVideoId,$typeMessage){
     $conn = sql();
     $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
@@ -56,8 +68,6 @@ function routingImgVideo($id,$accessHeader,$imgVideoId,$typeMessage){
 }
 
 
-
-/*
 
 function storeMessageData($id,$type,$message){
     $conn = sql();
