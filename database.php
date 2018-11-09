@@ -9,7 +9,8 @@ function openSession($id,$action){
     $isOpened = $conn->query($sql);
     if($isOpened ->num_rows == 0){ 
         $status = '1';
-        $sql = "INSERT INTO open_session (u_id,action,status) VALUES ('$id','$action','$status')";
+        $state = '0';
+        $sql = "INSERT INTO open_session (u_id,action,status,state) VALUES ('$id','$action','$status','$state')";
 
         if ($conn->query($sql) === TRUE) {
             $result =  "";
@@ -54,6 +55,10 @@ function routingImgVideo($id,$accessHeader,$imgVideoId,$typeMessage){
     }
 }
 
+
+
+/*
+
 function storeMessageData($id,$type,$message){
     $conn = sql();
     $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
@@ -77,12 +82,12 @@ function storeImageVideoData($id,$header,$imgId,$typeMessage){
 
     if($gid != null){
 
-        /*
-        $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
-        $ch = "curl -v -X "." GET ".$strUrl." -H '"."$header'"; //get Binary File
+        
+        //$strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
+        //$ch = "curl -v -X "." GET ".$strUrl." -H '"."$header'"; //get Binary File
         //$ch = "curl -v -X "." GET ".$strUrl." -o ".$imgId.".png "." -H '"."$accessHeader'"; //png File
-        exec($ch,$output,$errorCode);
-        */
+        //exec($ch,$output,$errorCode);
+        
         if($typeMessage == "video"){
             $path = "/storage/video/$imgId.mp4";
         }
@@ -94,3 +99,5 @@ function storeImageVideoData($id,$header,$imgId,$typeMessage){
     }
     
 }
+
+*/

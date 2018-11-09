@@ -50,13 +50,13 @@ $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]." status:".$row["status"]." start_time:".$row["start_time"]." end_time:".$row["end_time"]."action: ".$row["action"]. "<br>";
+        echo "id: " . $row["id"]." status:".$row["status"]." start_time:".$row["start_time"]." end_time:".$row["end_time"]." action: ".$row["action"]." state: ".$row["state"]. "<br>";
     }
 } else {
     echo "0 results\n\n";
 }
 
-
+/*
 $sql = "SELECT * FROM log";
 $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
@@ -67,6 +67,7 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
+*/
 
 
 //echo "Result :: ".scandir('/app');
