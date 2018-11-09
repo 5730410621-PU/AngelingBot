@@ -60,7 +60,7 @@ function arManagement($id,$state,$message){
         $conn->query($sql);
         return "ทำการแชร์เรียบร้อย";
     }
-    echo "still in ar";
+
 }
 
 function closeSession($id){
