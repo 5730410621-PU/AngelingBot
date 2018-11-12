@@ -73,7 +73,7 @@ function storeUserImage($id,$imgId,$header){
 function modify($imgId){
     if($output != null){
 
-        $overlayImage="./meme/userImg/$imgId.png"; 
+        $overlayImage="http://sheltered-refuge-45467.herokuapp.com/meme/userImg/8$imgId.png"; 
         $backgroundImage="./meme/userImg/$imgId.png";
         
         $im = imagecreatefrompng($backgroundImage);
