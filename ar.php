@@ -5,11 +5,11 @@ function arManagement($conn,$id,$state,$message){
     
     if($state == 0){
 
-       // storeUserImage($id,$message,$header);
+        storeUserImage($id,$message,$header);
         $sql = "UPDATE open_session SET state = 1 WHERE u_id = '$id' AND status = '1'";
         $conn->query($sql);
-       // return "กรุณาเลือกแท็กที่ต้องการใส่โดยพิมพ์เลขด้านหน้าแท็กครับ\n1 #ประเทศกูมี\n2 #RapThailand4.0\n3 #คุกกี้เสี่ยงทาย\n4 #คุกกี้เสี่ยงคุก";
-        return storeUserImage($id,$message,$header);
+        return "กรุณาเลือกแท็กที่ต้องการใส่โดยพิมพ์เลขด้านหน้าแท็กครับ\n1 #ประเทศกูมี\n2 #RapThailand4.0\n3 #คุกกี้เสี่ยงทาย\n4 #คุกกี้เสี่ยงคุก";
+        //return storeUserImage($id,$message,$header);
         
     }
     else if($state == 1){
@@ -61,12 +61,21 @@ function storeUserImage($id,$imgId,$header){
     $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
     //$ch = "curl -v -X "." GET ".$strUrl." -H '"."$header'";
     //$ch = "curl -v -X "." GET ".$strUrl." -o http://sheltered-refuge-45467.herokuapp.com/meme/userImg/".$imgId.".png "." -H '"."$header'";
-    $ch = "curl -v -X "." GET "."https://api.line.me/v2/bot/message/8851169895483/content"." -o meme/userImg/"."8851169895483".".png "." -H '"."Authorization: Bearer uUE/X13a2XpVT0CAFsl+x3PTTxcFwHvYsrF2Mg8Vt5LAwEI8/v6To55m+cDqoj8iKTYQ9QHndnGYHRuB3ZXwGSwsAmoKcNzS1nWx1vGZ3vPp3KNwi0eWuxSz4AfkuH0fP2wUt5pwgfZsCKZRJp52CgdB04t89/1O/w1cDnyilFU='";
+    $ch = "curl -v -X "." GET ".$strUrl." -o meme/userImg/".$imgId.".png "." -H '$header'";
     exec($ch,$output,$code);
-    $url = 'http://sheltered-refuge-45467.herokuapp.com/meme/userImg/8851169895483.png';
-    $img = 'meme/userImg/8851169895483.png';
-    file_put_contents($img, file_get_contents($url));
-    //$path = "/meme/userImg/$imgId.png";
-    //file_put_contents($path,base64_decode($output));
-    return $code;
+    modify($imgId);
+}
+
+function modify($imgId){
+    $overlayImage="meme/template/test.png"; 
+    $backgroundImage="meme/userImg/$imgId.png";
+
+    $im = imagecreatefrompng($backgroundImage);
+    $im2 = imagecreatefrompng("$overlayImage");
+
+    imagecopy($im, $im2, (imagesx($im)/2)-(imagesx($im2)/2), (imagesy($im)/2)-(imagesy($im2)/2), 0, 0, imagesx($im2), imagesy($im2));
+
+    imagepng($im,"meme/updateImage/$imgId"."_m.png",100);
+    imagedestroy($im);
+    imagedestroy($im2);
 }
