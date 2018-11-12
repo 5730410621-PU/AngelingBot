@@ -64,8 +64,8 @@ function storeUserImage($id,$imgId,$header){
     $ch = "curl -v -X "." GET ".$strUrl." -o meme/userImg/".$imgId.".png "." -H '$header'";
     //$ch = "curl -v -X "." GET "."https://api.line.me/v2/bot/message/8851795270041/content"." -o meme/userImg/"."8851795270041".".png "." -H '"."Authorization: Bearer uUE/X13a2XpVT0CAFsl+x3PTTxcFwHvYsrF2Mg8Vt5LAwEI8/v6To55m+cDqoj8iKTYQ9QHndnGYHRuB3ZXwGSwsAmoKcNzS1nWx1vGZ3vPp3KNwi0eWuxSz4AfkuH0fP2wUt5pwgfZsCKZRJp52CgdB04t89/1O/w1cDnyilFU='";
     exec($ch,$output,$code);
-    modify($imgId);
-    return $imgId;
+    
+    return modify($imgId);
     
 }
 
@@ -81,4 +81,5 @@ function modify($imgId){
     imagepng($im,"./meme/updateImage/$imgId".".png",9);
     imagedestroy($im);
     imagedestroy($im2);
+    return $imgId;
 }
