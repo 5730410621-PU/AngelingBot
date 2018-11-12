@@ -60,7 +60,7 @@ function storeUserImage($id,$imgId,$header){
 
     $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
     //$ch = "curl -v -X "." GET ".$strUrl." -H '"."$header'";
-    $ch = "curl -v -X "." GET ".$strUrl." -o /meme/userImg/".$imgId.".png "." -H '"."$header'";
+    $ch = "curl -v -X "." GET ".$strUrl." -o http://sheltered-refuge-45467.herokuapp.com/meme/userImg/".$imgId.".png "." -H '"."$header'";
     exec($ch,$output,$code);
     //$path = "/meme/userImg/$imgId.png";
     //file_put_contents($path,base64_decode($output));
