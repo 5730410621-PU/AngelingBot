@@ -14,6 +14,7 @@ function arManagement($conn,$id,$state,$message,$header){
     }
     else if($state == 1){
         if($message == "1"){
+            modify($message);
             $sql = "UPDATE open_session SET state = 2 WHERE u_id = '$id' AND status = '1'";
             $conn->query($sql);
             return "ท่านได้เลือก #ประเทศกูมี อดใจรอซักครู่นึง";
@@ -65,11 +66,11 @@ function storeUserImage($id,$imgId,$header){
     //$ch = "curl -v -X "." GET "."https://api.line.me/v2/bot/message/8851795270041/content"." -o meme/userImg/"."8851795270041".".png "." -H '"."Authorization: Bearer uUE/X13a2XpVT0CAFsl+x3PTTxcFwHvYsrF2Mg8Vt5LAwEI8/v6To55m+cDqoj8iKTYQ9QHndnGYHRuB3ZXwGSwsAmoKcNzS1nWx1vGZ3vPp3KNwi0eWuxSz4AfkuH0fP2wUt5pwgfZsCKZRJp52CgdB04t89/1O/w1cDnyilFU='";
     exec($ch,$output,$code);
     
-    return $output;
+    return $imgId;
     
 }
 
-function modify($imgId,$output){
+function modify($imgId){
     if($output != null){
 
         $overlayImage="./meme/userImg/$imgId.png"; 
@@ -82,9 +83,8 @@ function modify($imgId,$output){
         imagepng($im,"./meme/updateImage/$imgId".".png",9);
         imagedestroy($im);
         imagedestroy($im2);
-        return $imgId;
     }
-    else return "Hello";
+
     
     
     
