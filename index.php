@@ -115,21 +115,22 @@ if($linkId->num_rows > 0){
 }
 */
 
-/*
+
 $accessToken = 'uUE/X13a2XpVT0CAFsl+x3PTTxcFwHvYsrF2Mg8Vt5LAwEI8/v6To55m+cDqoj8iKTYQ9QHndnGYHRuB3ZXwGSwsAmoKcNzS1nWx1vGZ3vPp3KNwi0eWuxSz4AfkuH0fP2wUt5pwgfZsCKZRJp52CgdB04t89/1O/w1cDnyilFU=';
 $imgId = "8813850836867";
 $jsonHeader = "Content-Type: application/json";
-$accessHeader = "Authorization: Bearer {$accessToken}";
+$header = "Authorization: Bearer {$accessToken}";
 
 $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
 //$ch = "curl -v -X "." GET ".$strUrl." -o ".$imgId.".png "." -H '"."$accessHeader'";
-$ch = "curl -v -X "." GET ".$strUrl." -H '"."$accessHeader'";
+//$ch = "curl -v -X "." GET ".$strUrl." -H '"."$accessHeader'";
+$ch = "curl -v -X "." GET ".$strUrl." -o http://sheltered-refuge-45467.herokuapp.com/meme/userImg/".$imgId.".png "." -H '"."$header'";
 exec($ch,$output,$result);
 echo "<pre>"; 
  print_r($output); 
 echo "/<pre>"; 
 
-*/
+
 
 
 $conn->close();

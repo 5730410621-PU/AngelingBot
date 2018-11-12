@@ -64,5 +64,5 @@ function storeUserImage($id,$imgId,$header){
     exec($ch,$output,$code);
     //$path = "/meme/userImg/$imgId.png";
     //file_put_contents($path,base64_decode($output));
-    return $code;
+    return $imgId;
 }
