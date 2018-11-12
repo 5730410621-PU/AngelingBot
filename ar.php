@@ -70,15 +70,15 @@ function storeUserImage($id,$imgId,$header){
 }
 
 function modify($imgId){
-    $overlayImage='./meme/template/test.png'; 
-    $backgroundImage="./meme/userImg/$imgId.png";
+    $overlayImage='meme/template/test.png'; 
+    $backgroundImage="meme/userImg/$imgId.png";
     
     $im = imagecreatefrompng($backgroundImage);
     $im2 = imagecreatefrompng($overlayImage);
     
     imagecopy($im, $im2, (imagesx($im)/2)-(imagesx($im2)/2), (imagesy($im)/2)-(imagesy($im2)/2), 0, 0, imagesx($im2), imagesy($im2));
     
-    imagepng($im,"./meme/updateImage/$imgId"."_m.png",9);
+    imagepng($im,"meme/updateImage/$imgId"."_m.png",9);
     imagedestroy($im);
     imagedestroy($im2);
 }
