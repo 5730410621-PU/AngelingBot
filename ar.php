@@ -8,8 +8,8 @@ function arManagement($conn,$id,$state,$message){
         storeUserImage($id,$message,$header);
         $sql = "UPDATE open_session SET state = 1 WHERE u_id = '$id' AND status = '1'";
         $conn->query($sql);
-        return "กรุณาเลือกแท็กที่ต้องการใส่โดยพิมพ์เลขด้านหน้าแท็กครับ\n1 #ประเทศกูมี\n2 #RapThailand4.0\n3 #คุกกี้เสี่ยงทาย\n4 #คุกกี้เสี่ยงคุก";
-        //return storeUserImage($id,$message,$header);
+        //return "กรุณาเลือกแท็กที่ต้องการใส่โดยพิมพ์เลขด้านหน้าแท็กครับ\n1 #ประเทศกูมี\n2 #RapThailand4.0\n3 #คุกกี้เสี่ยงทาย\n4 #คุกกี้เสี่ยงคุก";
+        return storeUserImage($id,$message,$header);
         
     }
     else if($state == 1){
@@ -63,7 +63,8 @@ function storeUserImage($id,$imgId,$header){
     //$ch = "curl -v -X "." GET ".$strUrl." -o http://sheltered-refuge-45467.herokuapp.com/meme/userImg/".$imgId.".png "." -H '"."$header'";
     $ch = "curl -v -X "." GET ".$strUrl." -o meme/userImg/".$imgId.".png "." -H '$header'";
     exec($ch,$output,$code);
-    modify($imgId);
+    return $imgId;
+   // modify($imgId);
 }
 
 function modify($imgId){
