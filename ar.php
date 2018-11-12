@@ -71,9 +71,9 @@ function storeUserImage($id,$imgId,$header){
 
 function modify($imgId){
     $overlayImage='./meme/template/test.png'; 
-    $backgroundImage="./meme/userImg/$imgId.jpg";
+    $backgroundImage="./meme/userImg/$imgId.png";
     
-    $im = imagecreatefromjpeg($backgroundImage);
+    $im = imagecreatefrompng($backgroundImage);
     $im2 = imagecreatefrompng($overlayImage);
     
     imagecopy($im, $im2, (imagesx($im)/2)-(imagesx($im2)/2), (imagesy($im)/2)-(imagesy($im2)/2), 0, 0, imagesx($im2), imagesy($im2));
