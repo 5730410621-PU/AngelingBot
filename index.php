@@ -155,7 +155,7 @@ $backgroundImage = "appinline.jpg";
 //$overlayImage=__DIR__.'./meme/template/test.png'; 
 
 //$im = imagecreatefrompng($backgroundImage);
-$im = imagecreatefromjpeg($backgroundImage);
+//$im = imagecreatefromjpeg($backgroundImage);
 //$im2 = imagecreatefrompng($overlayImage);
 
 //imagecopy($im, $im2, (imagesx($im)/2)-(imagesx($im2)/2), (imagesy($im)/2)-(imagesy($im2)/2), 0, 0, imagesx($im2), imagesy($im2));
