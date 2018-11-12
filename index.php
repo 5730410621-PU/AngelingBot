@@ -155,11 +155,11 @@ $overlayImage='./meme/template/test.png';
 $im = imagecreatefrompng($backgroundImage);
 $im2 = imagecreatefrompng($overlayImage);
 
-imagecopy($im, $im2, (imagesx($im)/2)-(imagesx($im2)/2), (imagesy($im)/2)-(imagesy($im2)/2), 0, 0, imagesx($im2), imagesy($im2));
+//imagecopy($im, $im2, (imagesx($im)/2)-(imagesx($im2)/2), (imagesy($im)/2)-(imagesy($im2)/2), 0, 0, imagesx($im2), imagesy($im2));
 
-imagepng($im,"./meme/updateImage/test"."_m.png",9);
-imagedestroy($im);
-imagedestroy($im2);
+//imagepng($im,"./meme/updateImage/test"."_m.png",9);
+//imagedestroy($im);
+//imagedestroy($im2);
 
 
 echo __DIR__;
