@@ -65,24 +65,28 @@ function storeUserImage($id,$imgId,$header){
     //$ch = "curl -v -X "." GET "."https://api.line.me/v2/bot/message/8851795270041/content"." -o meme/userImg/"."8851795270041".".png "." -H '"."Authorization: Bearer uUE/X13a2XpVT0CAFsl+x3PTTxcFwHvYsrF2Mg8Vt5LAwEI8/v6To55m+cDqoj8iKTYQ9QHndnGYHRuB3ZXwGSwsAmoKcNzS1nWx1vGZ3vPp3KNwi0eWuxSz4AfkuH0fP2wUt5pwgfZsCKZRJp52CgdB04t89/1O/w1cDnyilFU='";
     exec($ch,$output,$code);
     
-    return modify($imgId);
+    return modify($imgId,$output);
     
 }
 
-function modify($imgId){
+function modify($imgId,$output){
+    if($output != null){
 
+        $overlayImage="./meme/userImg/$imgId.png"; 
+        $backgroundImage="./meme/userImg/$imgId.png";
+        
+        $im = imagecreatefrompng($backgroundImage);
+        $im2 = imagecreatefrompng($overlayImage);
+        
+        imagecopy($im, $im2, (imagesx($im)/2)-(imagesx($im2)/2), (imagesy($im)/2)-(imagesy($im2)/2), 0, 0, imagesx($im2), imagesy($im2));
+        imagepng($im,"./meme/updateImage/$imgId".".png",9);
+        imagedestroy($im);
+        imagedestroy($im2);
+        return $imgId;
+    }
+    else return "Hello";
     
-    $overlayImage="http://sheltered-refuge-45467.herokuapp.com/meme/userImg/$imgId.png"; 
-    $backgroundImage="./meme/userImg/$imgId.png";
     
-    $im = imagecreatefrompng($backgroundImage);
-    $im2 = imagecreatefrompng($overlayImage);
-    
-    imagecopy($im, $im2, (imagesx($im)/2)-(imagesx($im2)/2), (imagesy($im)/2)-(imagesy($im2)/2), 0, 0, imagesx($im2), imagesy($im2));
-    imagepng($im,"./meme/updateImage/$imgId".".png",9);
-    imagedestroy($im);
-    imagedestroy($im2);
-    return $imgId;
     
 
 }
