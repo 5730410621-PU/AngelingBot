@@ -44,6 +44,7 @@ if ($conn->query($sql) === TRUE) {
 echo "result ::".$result;
 */
 
+/*
 $count = 0;
 $sql = "SELECT * FROM open_session";
 $result =  $conn->query($sql);
@@ -70,7 +71,7 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 
-
+*/
 
 //echo "Result :: ".scandir('/app');
 
@@ -153,7 +154,7 @@ $backgroundImage=__DIR__."./meme/userImg/background.png";
 $overlayImage=__DIR__.'./meme/template/test.png'; 
 
 $im = imagecreatefrompng($backgroundImage);
-$im2 = imagecreatefrompng($overlayImage);
+//$im2 = imagecreatefrompng($overlayImage);
 
 //imagecopy($im, $im2, (imagesx($im)/2)-(imagesx($im2)/2), (imagesy($im)/2)-(imagesy($im2)/2), 0, 0, imagesx($im2), imagesy($im2));
 
