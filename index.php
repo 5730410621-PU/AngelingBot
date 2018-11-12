@@ -150,8 +150,8 @@ imagedestroy($im2);
 
 
 
-$backgroundImage="./meme/userImg/background.png";
-$overlayImage='./meme/template/test.png'; 
+$backgroundImage="/meme/userImg/background.png";
+$overlayImage='/meme/template/test.png'; 
 
 $im = imagecreatefrompng($backgroundImage);
 
