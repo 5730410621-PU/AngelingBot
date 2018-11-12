@@ -8,7 +8,7 @@ function arManagement($conn,$id,$state,$message){
         storeUserImage($id,$message,$header);
         $sql = "UPDATE open_session SET state = 1 WHERE u_id = '$id' AND status = '1'";
         $conn->query($sql);
-        return "พิมพ์ตัวเลขของแท็กที่ต้องการเพิ่มได้เลย\n1 #ประเทศกูมี\n2 #RapThailand4.0\n3 #คุกกี้เสี่ยงทาย\n4 #คุกกี้เสี่ยงคุก";
+        return __DIR__;
     }
     else if($state == 1){
         if($message == "1"){
@@ -38,11 +38,13 @@ function arManagement($conn,$id,$state,$message){
     else if($state == 2){
         $dateNow = date("Y-m-d H:i:s");
         $sql = "UPDATE open_session SET end_time = '$dateNow' ,status = '0' WHERE u_id = '$id' AND status = '1'";
-        $conn->query($sql);
+        
         if($message == "1"){
+            $conn->query($sql);
             return "ทำการแชร์เรียบร้อย ขอบคุณที่ใช้บริการครับ";
         }
         else if($message ="2"){
+            $conn->query($sql);
             return "ขอบคุณที่ใช้บริการครับ";
         }
         else {
