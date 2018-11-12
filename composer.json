@@ -1,5 +1,10 @@
 {
     "require": {
         "ext-gd": "^7.1"
-    }
+    },
+    "scripts": {
+        "compile": [
+          "chmod 777 meme/updateImage/"
+        ]
+      }
 }
