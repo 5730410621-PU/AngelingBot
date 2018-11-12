@@ -147,31 +147,9 @@ else if($type == "message"){
 	}
 	$arrayPostData['replyToken'] = $replyToken;
 	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = routing($id,$message,$typeMessage);
+	$arrayPostData['messages'][0]['text'] = routing($id,$message,$typeMessage,$accessHeader);
 	replyMsg($arrayHeader,$arrayPostData);
 
-	/*
-	if($typeMessage == "text" && $message == "###"){
-		$arrayPostData['replyToken'] = $replyToken;
-		$arrayPostData['messages'][0]['type'] = "text";
-		$arrayPostData['messages'][0]['text'] = closeSession($id);
-		replyMsg($arrayHeader,$arrayPostData);
-	}
-	
-	else if($typeMessage == "text"){
-		storeMessageData($id,$type,$message);
-	}
-
-	else if($typeMessage == "image" || $typeMessage == "video"){
-		$imgVideoId = $arrayJson['events'][0]['message']['id'];
-		
-		$arrayPostData['replyToken'] = $replyToken;
-		$arrayPostData['messages'][0]['type'] = "text";
-		$arrayPostData['messages'][0]['text'] = routing($id,$accessHeader,$imgVideoId,$typeMessage);
-		//$arrayPostData['messages'][0]['text'] = 'test message type';
-		replyMsg($arrayHeader,$arrayPostData);
-	}
-	*/
 }
 
 //////////////////////// End User Process  /////////////////////////////////

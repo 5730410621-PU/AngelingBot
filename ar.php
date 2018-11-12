@@ -4,6 +4,8 @@
 function arManagement($conn,$id,$state,$message){
     
     if($state == 0){
+
+        storeUserImage($id,$message,$header);
         $sql = "UPDATE open_session SET state = 1 WHERE u_id = '$id' AND status = '1'";
         $conn->query($sql);
         return "พิมพ์ตัวเลขของแท็กที่ต้องการเพิ่มได้เลย\n1 #ประเทศกูมี\n2 #RapThailand4.0\n3 #คุกกี้เสี่ยงทาย\n4 #คุกกี้เสี่ยงคุก";
@@ -48,4 +50,14 @@ function arManagement($conn,$id,$state,$message){
         }
         
     }
+}
+
+function storeUserImage($id,$imgId,$header){
+
+    $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
+    $ch = "curl -v -X "." GET ".$strUrl." -H '"."$header'";
+    exec($ch,$output,$code);
+    $path = "/meme/userImg/$imgId.png";
+    file_put_contents($path,base64_decode($output));
+
 }

@@ -23,7 +23,7 @@ function openSession($id,$action){
     return $result;
 }
 
-function routing($id,$message,$type){
+function routing($id,$message,$type,$header){
     $conn = sql();
     $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
     $linkId = $conn->query($sql);
@@ -33,7 +33,8 @@ function routing($id,$message,$type){
     $state = $row["state"];
     
     if($action == "Ar/Vr"){
-        return arManagement($conn,$id,$state,$message);
+
+        return arManagement($conn,$id,$state,$message,$header);
     }
     
     else if($action == 'Report'){
