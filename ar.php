@@ -5,7 +5,7 @@ function arManagement($conn,$id,$state,$message){
     
     if($state == 0){
 
-        storeUserImage($id,$message,$header);
+        //storeUserImage($id,$message,$header);
         $sql = "UPDATE open_session SET state = 1 WHERE u_id = '$id' AND status = '1'";
         $conn->query($sql);
         //return "กรุณาเลือกแท็กที่ต้องการใส่โดยพิมพ์เลขด้านหน้าแท็กครับ\n1 #ประเทศกูมี\n2 #RapThailand4.0\n3 #คุกกี้เสี่ยงทาย\n4 #คุกกี้เสี่ยงคุก";
