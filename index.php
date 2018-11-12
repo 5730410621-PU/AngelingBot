@@ -115,7 +115,7 @@ if($linkId->num_rows > 0){
 }
 */
 
-
+/*
 $accessToken = 'uUE/X13a2XpVT0CAFsl+x3PTTxcFwHvYsrF2Mg8Vt5LAwEI8/v6To55m+cDqoj8iKTYQ9QHndnGYHRuB3ZXwGSwsAmoKcNzS1nWx1vGZ3vPp3KNwi0eWuxSz4AfkuH0fP2wUt5pwgfZsCKZRJp52CgdB04t89/1O/w1cDnyilFU=';
 $imgId = "8851169895483";
 $jsonHeader = "Content-Type: application/json";
@@ -130,5 +130,23 @@ $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
 $ch = "curl -v -X "." GET "."https://api.line.me/v2/bot/message/8851169895483/content"." -o meme/userImg/"."8851169895483".".png "." -H '"."Authorization: Bearer uUE/X13a2XpVT0CAFsl+x3PTTxcFwHvYsrF2Mg8Vt5LAwEI8/v6To55m+cDqoj8iKTYQ9QHndnGYHRuB3ZXwGSwsAmoKcNzS1nWx1vGZ3vPp3KNwi0eWuxSz4AfkuH0fP2wUt5pwgfZsCKZRJp52CgdB04t89/1O/w1cDnyilFU='";
 exec($ch,$output,$result);
 echo $result;
+
+*/
+
+/*
+$overlayImage='./meme/template/test.png'; 
+$backgroundImage="./meme/userImg/unusedImage.jpg";
+
+$im = imagecreatefromjpeg($backgroundImage);
+$im2 = imagecreatefrompng($overlayImage);
+
+imagecopy($im, $im2, (imagesx($im)/2)-(imagesx($im2)/2), (imagesy($im)/2)-(imagesy($im2)/2), 0, 0, imagesx($im2), imagesy($im2));
+
+imagepng($im,"./meme/updateImage/test1234"."_m.png",9);
+imagedestroy($im);
+imagedestroy($im2);
+*/
+echo __DIR__;
+
 
 $conn->close();
