@@ -40,7 +40,6 @@ function arManagement($conn,$id,$state,$message,$header,$gid){
         if($option != null){
             $sql = "UPDATE meme_log SET image_id = '$message' WHERE u_id = '$id' AND image_id = '0'";
             $conn->query($sql);
-            
             //memeImage($id,$message,$header,$option);
 
             $dateNow = date("Y-m-d H:i:s");
