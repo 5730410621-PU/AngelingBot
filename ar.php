@@ -8,30 +8,27 @@ function arManagement($conn,$id,$state,$message,$header,$gid){
         if($message == "1"){
             $sql = "UPDATE open_session SET state = 1 WHERE u_id = '$id' AND status = '1'";
             $conn->query($sql);
-            $sql = "INSERT INTO meme_log (u_id,g_id,option,image_id) VALUES ('$id','$gid','1','0')";
+            $sql = "INSERT INTO meme_log (u_id,g_id,options,image_id) VALUES ('$id',$gid,'1','0')";
             $conn->query($sql);
             return 'ท่านได้เลือก #ประเทศกูมี เชิญเลือกภาพที่ต้องการร่วมสนุกได้เลย';
         }
         else if($message == "2"){
             $sql = "UPDATE open_session SET state = 1 WHERE u_id = '$id' AND status = '1'";
             $conn->query($sql);
-            $sql = "INSERT INTO meme_log (u_id,g_id,option,image_id) VALUES ('$id','$gid','2','0')";
+            $sql = "INSERT INTO meme_log (u_id,g_id,options,image_id) VALUES ('$id',$gid,'2','0')";
             $conn->query($sql);
             return 'ท่านได้เลือก #RapThailand4.0 เชิญเลือกภาพที่ต้องการร่วมสนุกได้เลย';
         }
         else if($message == "3"){
             $sql = "UPDATE open_session SET state = 1 WHERE u_id = '$id' AND status = '1'";
             $conn->query($sql);
-            $sql = "INSERT INTO meme_log (u_id,g_id,option,image_id) VALUES ('$id','$gid','2','0')";
+            $sql = "INSERT INTO meme_log (u_id,g_id,options,image_id) VALUES ('$id',$gid,'3','0')";
             $conn->query($sql);
             return 'ท่านได้เลือก #คำคม 10 ล้อ เชิญเลือกภาพที่ต้องการร่วมสนุกได้เลย';
         }
         else{
             return "อะอ้า คุณพิมพ์เลขผิดกรุณาพิมพ์ใหม่นะครับผม";
         }
-
-
-
 
         //storeUserImage($id,$message,$header);
         

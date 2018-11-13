@@ -13,7 +13,7 @@ $sql = "CREATE TABLE `meme_log` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `u_id` VARCHAR(45) NOT NULL,
     `g_id` VARCHAR(45) NOT NULL,
-    `option` VARCHAR(45) NOT NULL,
+    `options` VARCHAR(45) NOT NULL,
     `image_id` VARCHAR(45) NOT NULL,
     `time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     PRIMARY KEY (`id`),
@@ -31,7 +31,7 @@ $type = 'message';
 $message = 'Hello World';
 $action = 'Report';
 $status = '1';
-
+$gid = '12345';
 //$sql = "INSERT INTO open_session (u_id,action,status) VALUES ('$id','$action','$status')";
 
 /*
@@ -45,6 +45,17 @@ if ($conn->query($sql) === TRUE) {
 echo "result ::".$result;
 */
 
+/*
+$sql = "INSERT INTO meme_log (u_id,g_id,options,image_id) VALUES ('$id',$gid,'1','0')";
+if ($conn->query($sql) === TRUE) {
+    $result =  "insert complete!!";
+} else {
+    $result = "Error: ".$conn->error;
+}
+echo $result;
+*/
+
+/*
 
 $count = 0;
 $sql = "SELECT * FROM open_session";
@@ -57,9 +68,9 @@ if ($result->num_rows > 0) {
     }
     echo "$count results\n\n";
 } else {
-    echo "0 results\n\n";
+    echo "0 result"."<br>";
 }
-
+*/
  
 
 $sql = "SELECT * FROM meme_log";
@@ -67,10 +78,10 @@ $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<br>"."id: " . $row["id"]." uid: ".$row["u_id"]." gid: ".$row["g_id"]." option: ".$row["option"]." Image_id: ".$row["image_id"];
+        echo "<br>"."id: " . $row["id"]." uid: ".$row["u_id"]." gid: ".$row["g_id"]." option: ".$row["options"]." Image_id: ".$row["image_id"];
     }
 } else {
-    echo "0 results";
+    echo "0 result";
 }
 
 
@@ -149,12 +160,6 @@ imagepng($im,"./meme/updateImage/test1234"."_m.png",9);
 imagedestroy($im);
 imagedestroy($im2);
 */
-
-
-
-
-
-echo __DIR__;
 
 
 $conn->close();
