@@ -34,7 +34,7 @@ function routing($id,$message,$type,$header){
     
     if($action == "Meme"){
 
-        return arManagement($conn,$id,$state,$message,$header,$gid);
+        return arManagement($conn,$id,$state,$message,$header,$gid,$type);
     }
     else if($action == 'Report'){
         return reportManagement($conn,$id,$message,$type,$gid);
