@@ -72,13 +72,30 @@ function memeImage($id,$imgId,$header,$option){
     $response = curl_exec($ch);
     $img = imagecreatefromstring($response);
     imagepng($img,"./user.png",9);
-    
-    $im2 = imagecreatefrompng("./meme/template/test.png");
-    imagecopy($img, $im2, (imagesx($img)/2)-(imagesx($im2)/2), (imagesy($img)/2)-(imagesy($im2)/2), 0, 0, imagesx($im2), imagesy($im2));
+    $bgWidth = imagesx($img);
+    $bgHeight = imagesy($img);
+
+    $im2 = imagecreatefrompng("./meme/template/banner.png");
+    $overWidth = imagesx($im2);
+    $overHeight = imagesy($im2);
+
+    if($overWidth > $bgWidth){
+        $newWidth = $bgWidth;
+        $ratio = $newWidth/$overWidth;
+        $newHeight = round($overHeight*$ratio);
+        $overImage = imagecreatetruecolor($newWidth, $newHeight);
+        imagecopyresampled($overImage,$im2, 0, 0, 0, 0, $newWidth, $newHeight, $overWidth, $overHeight);
+        imagecopy($img,$overImage,($bgWidth-$newWidth)/2,$bgHeight-$newHeight,0,0,$newWidth,$newHeight);
+    }
+    else{
+        imagecopy($img,$im2,($bgWidth-$overWidth)/2,$bgHeight-$overHeight,0,0,$overWidth,$overHeight);
+    }
+
     imagepng($img,"./user"."_m.png",9);
     imagedestroy($img);
     imagedestroy($im2);
-    
+    imagedestroy($overImage);
+
 }
 
 
