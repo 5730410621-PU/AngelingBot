@@ -104,8 +104,6 @@ if($type == "postback"){
 		//print_r (openSession($id,$action));
 		replyMsg($arrayHeader,$arrayPostData);
 	}
-
-
 }
 
 else if($type == "message"){
