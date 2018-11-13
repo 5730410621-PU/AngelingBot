@@ -28,19 +28,25 @@ function arManagement($conn,$id,$state,$message,$header,$gid){
         }
         else{
             return "อะอ้า คุณพิมพ์เลขผิดกรุณาพิมพ์ใหม่นะครับผม";
-        }
-
-        //storeUserImage($id,$message,$header);
-        
-        $conn->query($sql);
-        return "";
-        
+        }     
     }
     else if($state == 1){
-        $dateNow = date("Y-m-d H:i:s");
-        $sql = "UPDATE open_session SET end_time = '$dateNow' ,status = '0' WHERE u_id = '$id' AND status = '1'";
-        $conn->query($sql);
-        return "ขอบคุณที่ร่วมสนุก";
+
+        $sql = "SELECT * FROM meme_log WHERE image_id='0' ORDER BY time DESC limit 1";
+        $imgId0 = $conn->query($sql);
+        $row = $imgId0->fetch_assoc();
+        $options =$row["options"];
+
+        if($options != null){
+            
+
+
+            $dateNow = date("Y-m-d H:i:s");
+            $sql = "UPDATE open_session SET end_time = '$dateNow' ,status = '0' WHERE u_id = '$id' AND status = '1'";
+            $conn->query($sql);
+            return "ร่วมสนุกกับทางเราได้ทาง xxxx โดยการแชร์รูปของท่านจากในเพจเพื่อลุ้นรับเสื้อเพจจำนวน 10 รางวัล หมดเขต 31 ธ.ค. นี้";
+        }
+  
     }     
 }
 
