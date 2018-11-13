@@ -41,7 +41,7 @@ function arManagement($conn,$id,$state,$message,$header,$gid){
             $sql = "UPDATE meme_log SET image_id = '$message' WHERE u_id = '$id' AND image_id = '0'";
             $conn->query($sql);
             
-            memeImage($id,$message,$header,$option);
+            //memeImage($id,$message,$header,$option);
 
             $dateNow = date("Y-m-d H:i:s");
             $sql = "UPDATE open_session SET end_time = '$dateNow' ,status = '0' WHERE u_id = '$id' AND status = '1'";
@@ -53,6 +53,7 @@ function arManagement($conn,$id,$state,$message,$header,$gid){
     }     
 }
 
+/*
 function memeImage($id,$imgId,$header,$option){
 
     $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
@@ -80,4 +81,5 @@ function memeImage($id,$imgId,$header,$option){
     imagedestroy($img);
     imagedestroy($im2);
 }
+*/
 
