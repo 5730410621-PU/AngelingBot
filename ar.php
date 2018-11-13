@@ -52,7 +52,6 @@ function arManagement($conn,$id,$state,$message,$header,$gid){
     }     
 }
 
-
 function memeImage($id,$imgId,$header,$option){
 
     $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
