@@ -94,10 +94,11 @@ function memeImage($id,$imgId,$header,$option){
         imagecopyresampled($overImage,$im2, 0, 0, 0, 0, $newWidth, $newHeight, $overWidth, $overHeight);
         imagecopy($img,$overImage,$bgWidth-$newWidth,$bgHeight-$newHeight,0,0,$newWidth,$newHeight);
     }
+    /*
     else{
         imagecopy($img,$im2,$bgWidth-$overWidth,$bgHeight-$overHeight,0,0,$overWidth,$overHeight);
     }
-
+    */
     imagepng($img,"./meme/updateImage/$imgId"."_m.png",9);
     imagedestroy($img);
     imagedestroy($im2);
