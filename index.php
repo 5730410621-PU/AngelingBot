@@ -158,7 +158,7 @@ imagedestroy($im);
 imagedestroy($im2);
 */
 
-
+/*
 $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
 
 $ch = curl_init();
@@ -183,7 +183,7 @@ imagecopy($img, $im2, (imagesx($img)/2)-(imagesx($im2)/2), (imagesy($img)/2)-(im
 imagepng($img,"./user"."_m.png",9);
 imagedestroy($img);
 imagedestroy($im2);
-
+*/
 
 //$ch = "curl -v -X "." GET ".$strUrl." -H '"."$header'";
 //$ch = "curl -v -X "." GET ".$strUrl." -o ".$imgId.".png "." -H '"."$header'";
