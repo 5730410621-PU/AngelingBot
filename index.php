@@ -91,7 +91,7 @@ if ($result->num_rows > 0) {
 
 
 /*
-$sql = "DELETE FROM open_session WHERE status IN ('1')";
+$sql = "DELETE FROM open_session WHERE status IN ('0')";
 if ($conn->query($sql) === TRUE) {
     $result =  "Delete complete!!";
 } else {
@@ -100,7 +100,7 @@ if ($conn->query($sql) === TRUE) {
 echo $result;
 
 
-$sql = "DELETE FROM meme_log WHERE options IN ('1')";
+$sql = "DELETE FROM meme_log WHERE options IN ('3')";
 if ($conn->query($sql) === TRUE) {
     $result =  "Delete complete!!";
 } else {
