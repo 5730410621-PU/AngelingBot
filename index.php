@@ -9,12 +9,12 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 /*
-$sql = "CREATE TABLE `log` (
+$sql = "CREATE TABLE `meme_log` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `u_id` VARCHAR(45) NOT NULL,
     `g_id` VARCHAR(45) NOT NULL,
-    `type` VARCHAR(45) NOT NULL,
-    `message` VARCHAR(45) NOT NULL,
+    `option` VARCHAR(45) NOT NULL,
+    `image_id` VARCHAR(45) NOT NULL,
     `time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     PRIMARY KEY (`id`),
     UNIQUE INDEX `id_UNIQUE` (`id` ASC) );";
@@ -25,6 +25,7 @@ if ($conn->query($sql) === TRUE) {
     echo "Error: ".$conn->error;
 }
 */
+
 $id = 'U838a39141a56615db66e65c954e5a036';
 $type = 'message';
 $message = 'Hello World';
@@ -59,20 +60,20 @@ if ($result->num_rows > 0) {
     echo "0 results\n\n";
 }
 
- /*
+ 
 
-$sql = "SELECT * FROM log";
+$sql = "SELECT * FROM meme_log";
 $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<br>"."id: " . $row["id"]." uid: ".$row["u_id"]." gid: ".$row["g_id"]." type: ".$row["type"]." message: ".$row["message"];
+        echo "<br>"."id: " . $row["id"]." uid: ".$row["u_id"]." gid: ".$row["g_id"]." option: ".$row["option"]." Image_id: ".$row["image_id"];
     }
 } else {
     echo "0 results";
 }
 
-*/
+
 
 //echo "Result :: ".scandir('/app');
 
@@ -151,15 +152,6 @@ imagedestroy($im2);
 
 
 
-$backgroundImage="./meme/userImg/background.png";
-$overlayImage='./meme/template/test.png'; 
-
-$im = imagecreatefrompng($backgroundImage);
-$im2 = imagecreatefrompng($overlayImage);
-imagecopy($im, $im2, (imagesx($im)/2)-(imagesx($im2)/2), (imagesy($im)/2)-(imagesy($im2)/2), 0, 0, imagesx($im2), imagesy($im2));
-imagepng($im,"./meme/updateImage/test"."_m.png",9);
-imagedestroy($im);
-imagedestroy($im2);
 
 
 echo __DIR__;

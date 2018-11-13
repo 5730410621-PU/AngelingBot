@@ -34,7 +34,7 @@ function routing($id,$message,$type,$header){
     
     if($action == "Ar/Vr"){
 
-        return arManagement($conn,$id,$state,$message,$header);
+        return arManagement($conn,$id,$state,$message,$header,$gid);
     }
     
     else if($action == 'Report'){
