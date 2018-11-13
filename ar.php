@@ -86,14 +86,14 @@ function memeImage($id,$imgId,$header,$option){
     $overWidth = imagesx($im2);
     $overHeight = imagesy($im2);
 
-    if($overWidth > $bgWidth){
+   // if($overWidth > $bgWidth){
         $newWidth = $bgWidth;
         $ratio = $newWidth/$overWidth;
         $newHeight = round($overHeight*$ratio);
         $overImage = imagecreatetruecolor($newWidth, $newHeight);
         imagecopyresampled($overImage,$im2, 0, 0, 0, 0, $newWidth, $newHeight, $overWidth, $overHeight);
         imagecopy($img,$overImage,$bgWidth-$newWidth,$bgHeight-$newHeight,0,0,$newWidth,$newHeight);
-    }
+    //}
     /*
     else{
         imagecopy($img,$im2,$bgWidth-$overWidth,$bgHeight-$overHeight,0,0,$overWidth,$overHeight);
