@@ -78,6 +78,7 @@ function memeImage($id,$imgId,$header,$option){
     imagepng($img,"./user"."_m.png",9);
     imagedestroy($img);
     imagedestroy($im2);
+    
 }
 
 
