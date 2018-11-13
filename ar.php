@@ -111,7 +111,7 @@ function memeImage($id,$imgId,$header,$option,$conn){
     imagedestroy($im2);
     imagedestroy($overImage);
 
-    $sql = "UPDATE meme_log SET scr_path = '$src_path',des_path = '$des_path' WHERE u_id = '$id'";
+    $sql = "UPDATE meme_log SET src_path = '$src_path',des_path = '$des_path' WHERE u_id = '$id'";
     $conn->query($sql);
 
 }
