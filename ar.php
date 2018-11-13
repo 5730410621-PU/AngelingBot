@@ -40,7 +40,7 @@ function arManagement($conn,$id,$state,$message,$header,$gid){
         if($option != null){
             $sql = "UPDATE meme_log SET image_id = '$message' WHERE u_id = '$id' AND image_id = '0'";
             $conn->query($sql);
-            memeImage($id,$message,$header,$option);
+            memeImage($id,$message,$header,$option,$conn);
 
             $dateNow = date("Y-m-d H:i:s");
             $sql = "UPDATE open_session SET end_time = '$dateNow' ,status = '0' WHERE u_id = '$id' AND status = '1'";
@@ -52,7 +52,7 @@ function arManagement($conn,$id,$state,$message,$header,$gid){
     }     
 }
 
-function memeImage($id,$imgId,$header,$option){
+function memeImage($id,$imgId,$header,$option,$conn){
 
     $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
     $ch = "curl -v -X "." GET ".$strUrl." -H '"."$header'";
@@ -71,30 +71,33 @@ function memeImage($id,$imgId,$header,$option){
     curl_setopt_array($ch, $c_options);
     $response = curl_exec($ch);
     $img = imagecreatefromstring($response);
-    imagepng($img,"./meme/userImg/$imgId.png",9);
+
+    $src_path = "./meme/userImg/$imgId.png";
+    imagepng($img,$src_path,9);
     $bgWidth = imagesx($img);
     $bgHeight = imagesy($img);
     
     if($option == '1'){
-        $im2 = imagecreatefrompng("./meme/template/line1.png");
+        $tem_path = "./meme/template/line1.png";
     }else if($option == '2'){
-        $im2 = imagecreatefrompng("./meme/template/line2.png");
+        $tem_path = "./meme/template/line2.png";
     }else if($option == '3'){
-        $im2 = imagecreatefrompng("./meme/template/line3.png");
+        $tem_path = "./meme/template/line3.png";      
     }
-    
+
+    $im2 = imagecreatefrompng($tem_path);
     $overWidth = imagesx($im2);
     $overHeight = imagesy($im2);
 
    // if($overWidth > $bgWidth){
-        $newWidth = $bgWidth;
-        $ratio = $newWidth/$overWidth;
-        $newHeight = round($overHeight*$ratio);
-        $overImage = imagecreatetruecolor($newWidth, $newHeight);
-        imagealphablending( $overImage, false );
-        imagesavealpha( $overImage, true );
-        imagecopyresampled($overImage,$im2, 0, 0, 0, 0, $newWidth, $newHeight, $overWidth, $overHeight);
-        imagecopy($img,$overImage,$bgWidth-$newWidth,$bgHeight-$newHeight,0,0,$newWidth,$newHeight);
+    $newWidth = $bgWidth;
+    $ratio = $newWidth/$overWidth;
+    $newHeight = round($overHeight*$ratio);
+    $overImage = imagecreatetruecolor($newWidth, $newHeight);
+    imagealphablending( $overImage, false );
+    imagesavealpha( $overImage, true );
+    imagecopyresampled($overImage,$im2, 0, 0, 0, 0, $newWidth, $newHeight, $overWidth, $overHeight);
+    imagecopy($img,$overImage,$bgWidth-$newWidth,$bgHeight-$newHeight,0,0,$newWidth,$newHeight);
     //}
     /*
     else{
@@ -102,10 +105,14 @@ function memeImage($id,$imgId,$header,$option){
     }
     */
     //imagecopy($img,$im2,$bgWidth-$overWidth,$bgHeight-$overHeight,0,0,$overWidth,$overHeight);
+    $des_path = "./meme/updateImage/$imgId"."_m.png";
     imagepng($img,"./meme/updateImage/$imgId"."_m.png",9);
     imagedestroy($img);
     imagedestroy($im2);
     imagedestroy($overImage);
+
+    $sql = "UPDATE meme_log SET scr_path = '$src_path',des_path = '$des_path' WHERE u_id = '$id'";
+    $conn->query($sql);
 
 }
 

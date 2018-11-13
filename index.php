@@ -67,7 +67,8 @@ if ($result->num_rows > 0) {
         $count = $count + 1;
     }
     echo "$count results\n\n";
-} else {
+} 
+else {
     echo "0 result"."<br>";
 }
 
@@ -78,7 +79,7 @@ $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<br>"."id: " . $row["id"]." uid: ".$row["u_id"]." gid: ".$row["g_id"]." option: ".$row["options"]." Image_id: ".$row["image_id"];
+        echo "<br>"."id: " . $row["id"]." uid: ".$row["u_id"]." gid: ".$row["g_id"]." option: ".$row["options"]." Image_id: ".$row["image_id"]." src: ".$row["src_path"]." des: ".$row["des_path"];
     }
 } else {
     echo "0 result";
@@ -201,9 +202,15 @@ imagepng($img,"./user"."_m.png",9);
 
 */
 
-
-
-
+/*
+$sql ="ALTER TABLE meme_log ADD COLUMN des_path VARCHAR(45)";
+if ($conn->query($sql) === TRUE) {
+    $result =  "insert complete!!";
+} else {
+    $result = "Error: ".$conn->error;
+}
+echo $result;
+*/
 /*
 $im2 = imagecreatefrompng("./meme/template/test.png");
 imagecopy($img, $im2, (imagesx($img)/2)-(imagesx($im2)/2), (imagesy($img)/2)-(imagesy($im2)/2), 0, 0, imagesx($im2), imagesy($im2));
