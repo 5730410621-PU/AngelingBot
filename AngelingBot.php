@@ -124,7 +124,7 @@ if($type == "postback"){
 		openSession($id,$action);
 		$arrayPostData['replyToken'] = $replyToken;
 		$arrayPostData['messages'][0]['type'] = "text";
-		$arrayPostData['messages'][0]['text'] = "กรุณาเลือกแท็กที่ต้องการใส่โดยพิมพ์เลขด้านหน้าแท็กครับ\n1 #ประเทศกูมี\n2 #RapThailand4.0\n3 #คุกกี้เสี่ยงทาย";
+		$arrayPostData['messages'][0]['text'] = "กรุณาเลือกแท็กที่ต้องการใส่โดยพิมพ์เลขด้านหน้าแท็กครับ\n1 #ประเทศกูมี\n2 #ลุงป้อม4.0\n3 #พรรคเพื่อเธอ";
 		//print_r (openSession($id,$action));
 		replyMsg($arrayHeader,$arrayPostData);
 	}

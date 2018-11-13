@@ -17,14 +17,14 @@ function arManagement($conn,$id,$state,$message,$header,$gid){
             $conn->query($sql);
             $sql = "INSERT INTO meme_log (u_id,g_id,options,image_id) VALUES ('$id',$gid,'2','0')";
             $conn->query($sql);
-            return 'ท่านได้เลือก #RapThailand4.0 เชิญเลือกภาพที่ต้องการร่วมสนุกได้เลย';
+            return 'ท่านได้เลือก #ลุงป้อม4.0 เชิญเลือกภาพที่ต้องการร่วมสนุกได้เลย';
         }
         else if($message == "3"){
             $sql = "UPDATE open_session SET state = 1 WHERE u_id = '$id' AND status = '1'";
             $conn->query($sql);
             $sql = "INSERT INTO meme_log (u_id,g_id,options,image_id) VALUES ('$id',$gid,'3','0')";
             $conn->query($sql);
-            return 'ท่านได้เลือก #คำคม 10 ล้อ เชิญเลือกภาพที่ต้องการร่วมสนุกได้เลย';
+            return 'ท่านได้เลือก #พรรคเพื่อเธอ เชิญเลือกภาพที่ต้องการร่วมสนุกได้เลย';
         }
         else{
             return "อะอ้า คุณพิมพ์เลขผิดกรุณาพิมพ์ใหม่นะครับผม";
@@ -45,7 +45,7 @@ function arManagement($conn,$id,$state,$message,$header,$gid){
             $dateNow = date("Y-m-d H:i:s");
             $sql = "UPDATE open_session SET end_time = '$dateNow' ,status = '0' WHERE u_id = '$id' AND status = '1'";
             $conn->query($sql);
-            return "ร่วมสนุกกับทางเราได้ทาง xxxx โดยการแชร์รูปของท่านจากในเพจเพื่อลุ้นรับเสื้อเพจจำนวน 10 รางวัล หมดเขต 31 ธ.ค. นี้";
+            return "ทำการใส่แท็กให้ท่านเรียบร้อย ร่วมสนุกกับทางเราได้ทาง xxxx โดยการแชร์รูปของท่านจากในเพจเพื่อลุ้นรับเสื้อเพจจำนวน 10 รางวัล หมดเขต 31 ธ.ค. นี้";
             //return  memeImage($id,$message,$header,$option);
         }
   
@@ -74,8 +74,15 @@ function memeImage($id,$imgId,$header,$option){
     imagepng($img,"./meme/userImg/$imgId.png",9);
     $bgWidth = imagesx($img);
     $bgHeight = imagesy($img);
-
-    $im2 = imagecreatefrompng("./meme/template/banner.png");
+    
+    if($option == '1'){
+        $im2 = imagecreatefrompng("./meme/template/line1.png");
+    }else if($option == '2'){
+        $im2 = imagecreatefrompng("./meme/template/line2.png");
+    }else if($option == '3'){
+        $im2 = imagecreatefrompng("./meme/template/line3.png");
+    }
+    
     $overWidth = imagesx($im2);
     $overHeight = imagesy($im2);
 
@@ -85,10 +92,10 @@ function memeImage($id,$imgId,$header,$option){
         $newHeight = round($overHeight*$ratio);
         $overImage = imagecreatetruecolor($newWidth, $newHeight);
         imagecopyresampled($overImage,$im2, 0, 0, 0, 0, $newWidth, $newHeight, $overWidth, $overHeight);
-        imagecopy($img,$overImage,($bgWidth-$newWidth)/2,$bgHeight-$newHeight,0,0,$newWidth,$newHeight);
+        imagecopy($img,$overImage,$bgWidth-$newWidth,$bgHeight-$newHeight,0,0,$newWidth,$newHeight);
     }
     else{
-        imagecopy($img,$im2,($bgWidth-$overWidth)/2,$bgHeight-$overHeight,0,0,$overWidth,$overHeight);
+        imagecopy($img,$im2,$bgWidth-$overWidth,$bgHeight-$overHeight,0,0,$overWidth,$overHeight);
     }
 
     imagepng($img,"./meme/updateImage/$imgId"."_m.png",9);
