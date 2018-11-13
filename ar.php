@@ -81,20 +81,3 @@ function memeImage($id,$imgId,$header,$option){
     imagedestroy($im2);
 }
 
-/*
-function modify($imgId){
-    if($output != null){
-
-        $overlayImage="http://sheltered-refuge-45467.herokuapp.com/meme/userImg/8$imgId.png"; 
-        $backgroundImage="./meme/userImg/$imgId.png";
-        
-        $im = imagecreatefrompng($backgroundImage);
-        $im2 = imagecreatefrompng($overlayImage);
-        
-        imagecopy($im, $im2, (imagesx($im)/2)-(imagesx($im2)/2), (imagesy($im)/2)-(imagesy($im2)/2), 0, 0, imagesx($im2), imagesy($im2));
-        imagepng($im,"./meme/updateImage/$imgId".".png",9);
-        imagedestroy($im);
-        imagedestroy($im2);
-    }
-}
-*/
