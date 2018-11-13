@@ -32,11 +32,10 @@ function routing($id,$message,$type,$header){
     $action = $row["action"];
     $state = $row["state"];
     
-    if($action == "Ar/Vr"){
+    if($action == "Meme"){
 
         return arManagement($conn,$id,$state,$message,$header,$gid);
     }
-    
     else if($action == 'Report'){
         return reportManagement($conn,$id,$message,$type,$gid);
     }

@@ -88,39 +88,7 @@ if($type == "postback"){
 
 	$action = substr($arrayJson['events'][0]['postback']['data'],7);
 	
-	if($action == "Horo"){
-		openSession($id,$action);
-		$arrayPostData['replyToken'] = $replyToken;
-		$arrayPostData['messages'][0]['type'] = "text";
-		$arrayPostData['messages'][0]['text'] = "ดวงคุณวันนี้แข็งมาก";
-		//print_r (openSession($id,$action));
-		replyMsg($arrayHeader,$arrayPostData);
-	}
-	else if($action == "Poll"){
-		openSession($id,$action);
-		$arrayPostData['replyToken'] = $replyToken;
-		$arrayPostData['messages'][0]['type'] = "text";
-		$arrayPostData['messages'][0]['text'] = "Rap Thailand 4.0  กับ ประเทศกูมี";
-		//print_r (openSession($id,$action));
-		replyMsg($arrayHeader,$arrayPostData);
-	}
-	else if($action == "Quiz"){
-		openSession($id,$action);
-		$arrayPostData['replyToken'] = $replyToken;
-		$arrayPostData['messages'][0]['type'] = "text";
-		$arrayPostData['messages'][0]['text'] = "รู้หรือไม่ ไก่กับไข่อะไรเกิดก่อนกัน";
-		//print_r (openSession($id,$action));
-		replyMsg($arrayHeader,$arrayPostData);
-	}
-	else if($action == "News"){
-		openSession($id,$action);
-		$arrayPostData['replyToken'] = $replyToken;
-		$arrayPostData['messages'][0]['type'] = "text";
-		$arrayPostData['messages'][0]['text'] = "นายกรัฐมนตรีประกาศลาออกเพื่อมีการจัดเลือกตั้งในวันที่...(คลิ๊ก)";
-		//print_r (openSession($id,$action));
-		replyMsg($arrayHeader,$arrayPostData);
-	}
-	else if($action == "Ar/Vr"){
+	if($action == "Meme"){
 		openSession($id,$action);
 		$arrayPostData['replyToken'] = $replyToken;
 		$arrayPostData['messages'][0]['type'] = "text";
