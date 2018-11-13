@@ -87,18 +87,19 @@ function memeImage($id,$imgId,$header,$option){
     $overHeight = imagesy($im2);
 
    // if($overWidth > $bgWidth){
-        $newWidth = $bgWidth;
-        $ratio = $newWidth/$overWidth;
-        $newHeight = round($overHeight*$ratio);
-        $overImage = imagecreatetruecolor($newWidth, $newHeight);
-        imagecopyresampled($overImage,$im2, 0, 0, 0, 0, $newWidth, $newHeight, $overWidth, $overHeight);
-        imagecopy($img,$overImage,$bgWidth-$newWidth,$bgHeight-$newHeight,0,0,$newWidth,$newHeight);
+        // $newWidth = $bgWidth;
+        // $ratio = $newWidth/$overWidth;
+        // $newHeight = round($overHeight*$ratio);
+        // $overImage = imagecreatetruecolor($newWidth, $newHeight);
+        // imagecopyresampled($overImage,$im2, 0, 0, 0, 0, $newWidth, $newHeight, $overWidth, $overHeight);
+        // imagecopy($img,$overImage,$bgWidth-$newWidth,$bgHeight-$newHeight,0,0,$newWidth,$newHeight);
     //}
     /*
     else{
         imagecopy($img,$im2,$bgWidth-$overWidth,$bgHeight-$overHeight,0,0,$overWidth,$overHeight);
     }
     */
+    imagecopy($img,$im2,$bgWidth-$overWidth,$bgHeight-$overHeight,0,0,$overWidth,$overHeight);
     imagepng($img,"./meme/updateImage/$imgId"."_m.png",9);
     imagedestroy($img);
     imagedestroy($im2);
