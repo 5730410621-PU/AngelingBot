@@ -90,15 +90,13 @@ if ($result->num_rows > 0) {
 
 
 /*
-
-$sql = "DELETE FROM open_session WHERE status IN ('0')";
+$sql = "DELETE FROM open_session WHERE status IN ('1')";
 if ($conn->query($sql) === TRUE) {
     $result =  "Delete complete!!";
 } else {
     $result = "Error: ".$conn->error;
 }
 echo $result;
-
 
 
 $sql = "DELETE FROM meme_log WHERE options IN ('1')";
@@ -160,6 +158,7 @@ imagepng($im,"./meme/updateImage/test1234"."_m.png",9);
 imagedestroy($im);
 imagedestroy($im2);
 */
+
 
 $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
 $ch = "curl -v -X "." GET ".$strUrl." -H '"."$header'";

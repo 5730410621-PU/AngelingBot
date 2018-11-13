@@ -37,7 +37,7 @@ function arManagement($conn,$id,$state,$message,$header,$gid){
         $row = $imgId0->fetch_assoc();
         $option =$row["options"];
 
-        if($options != null){
+        if($option != null){
             $sql = "UPDATE meme_log SET image_id = '$message' WHERE u_id = '$id' AND image_id = '0'";
             $conn->query($sql);
             
