@@ -106,7 +106,7 @@ function memeImage($id,$imgId,$header,$option,$conn){
     */
     //imagecopy($img,$im2,$bgWidth-$overWidth,$bgHeight-$overHeight,0,0,$overWidth,$overHeight);
     $des_path = "./meme/updateImage/$imgId"."_m.png";
-    imagepng($img,"./meme/updateImage/$imgId"."_m.png",9);
+    imagepng($img,$des_path,9);
     imagedestroy($img);
     imagedestroy($im2);
     imagedestroy($overImage);

@@ -12,86 +12,30 @@
                       "bounds" => [
                         "x" => 0,
                         "y" => 0,
-                        "width" => 833,
-                        "height" => 843
+                        "width" => 1250,
+                        "height" => 1686
                   ],
                       "action" => [
-                        "type" => "postback",
-                        "label" => "Horo",
-                        "data" => "action=Horo",
-                        "text" => ""
-                  ]
-                ],
-                [
-                    "bounds" => [
-                        "x" => 833,
-                        "y" => 0,
-                        "width" => 833,
-                        "height" => 843
-                    ],
-                    "action" => [
-                        "type" => "postback",
-                        "label" => "Poll",
-                        "data" => "action=Poll",
-                        "text" => ""
-                    ]
-                ],
-                [
-                    "bounds" => [
-                        "x" => 1666,
-                        "y" => 0,
-                        "width" => 833,
-                        "height" => 843
-                    ],
-                    "action" => [
-                        "type" => "postback",
-                        "label" => "Quiz",
-                        "data" => "action=Quiz",
-                        "text" => ""
-                    ]
-                  ],
-                [
-                    "bounds" => [
-                        "x" => 0,
-                        "y" => 843,
-                        "width" => 833,
-                        "height" => 843
-                    ],
-                    "action" => [
-                        "type" => "postback",
-                        "label" => "News",
-                        "data" => "action=News",
-                        "text" => ""
-                    ]
-                  ],
-                [
-                    "bounds" => [
-                        "x" => 833,
-                        "y" => 843,
-                        "width" => 833,
-                        "height" => 843
-                    ],
-                    "action" => [
-                        "type" => "postback",
-                        "label" => "Ar/Vr",
-                        "data" => "action=Ar/Vr",
-                        "text" => ""
-                    ]
-                  ],
-                [
-                    "bounds" => [
-                        "x" => 1666,
-                        "y" => 843,
-                        "width" => 833,
-                        "height" => 843
-                    ],
-                    "action" => [    
                         "type" => "postback",
                         "label" => "Report",
                         "data" => "action=Report",
                         "text" => ""
-                    ]
                   ]
+                ],
+                [
+                    "bounds" => [
+                        "x" => 1250,
+                        "y" => 0,
+                        "width" => 1250,
+                        "height" => 1686
+                    ],
+                    "action" => [
+                        "type" => "postback",
+                        "label" => "Meme",
+                        "data" => "action=Meme",
+                        "text" => ""
+                    ]
+                ]
             ]
         ];
         return $richMenu;
