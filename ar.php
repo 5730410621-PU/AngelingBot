@@ -38,9 +38,9 @@ function arManagement($conn,$id,$state,$message,$header,$gid){
         $options =$row["options"];
 
         if($options != null){
+            $sql = "UPDATE meme_log SET image_id = '$message' WHERE u_id = '$id' AND image_id = '0'";
+            $conn->query($sql);
             
-
-
             $dateNow = date("Y-m-d H:i:s");
             $sql = "UPDATE open_session SET end_time = '$dateNow' ,status = '0' WHERE u_id = '$id' AND status = '1'";
             $conn->query($sql);
