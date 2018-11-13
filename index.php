@@ -127,12 +127,11 @@ if($linkId->num_rows > 0){
 }
 */
 
-/*
-$accessToken = 'uUE/X13a2XpVT0CAFsl+x3PTTxcFwHvYsrF2Mg8Vt5LAwEI8/v6To55m+cDqoj8iKTYQ9QHndnGYHRuB3ZXwGSwsAmoKcNzS1nWx1vGZ3vPp3KNwi0eWuxSz4AfkuH0fP2wUt5pwgfZsCKZRJp52CgdB04t89/1O/w1cDnyilFU=';
-$imgId = "8851169895483";
-$jsonHeader = "Content-Type: application/json";
-$header = "Authorization: Bearer {$accessToken}";
 
+$accessToken = 'uUE/X13a2XpVT0CAFsl+x3PTTxcFwHvYsrF2Mg8Vt5LAwEI8/v6To55m+cDqoj8iKTYQ9QHndnGYHRuB3ZXwGSwsAmoKcNzS1nWx1vGZ3vPp3KNwi0eWuxSz4AfkuH0fP2wUt5pwgfZsCKZRJp52CgdB04t89/1O/w1cDnyilFU=';
+$imgId = "8855724503269";
+$header = "Authorization: Bearer {$accessToken}";
+/*
 $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
 //$ch = "curl -v -X "." GET ".$strUrl." -o ".$imgId.".png "." -H '"."$accessHeader'";
 //$ch = "curl -v -X "." GET ".$strUrl." -H '"."$accessHeader'";
@@ -161,7 +160,37 @@ imagedestroy($im2);
 
 
 $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
-$ch = "curl -v -X "." GET ".$strUrl." -H '"."$header'";
+
+$ch = curl_init();
+$options =  array(
+
+    CURLOPT_URL => $strUrl,
+    CURLOPT_HTTPHEADER => array($header, 'Content-type: image/png'),
+    CURLOPT_ENCODING => "",
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_HTTPGET => true,
+    CURLOPT_CONNECTTIMEOUT => 60,
+    CURLOPT_TIMEOUT => 60
+
+);
+curl_setopt_array($ch, $options);
+$response = curl_exec($ch);
+$img = imagecreatefromstring($response);
+imagepng($img,"./user.png",9);
+
+$im2 = imagecreatefrompng("./meme/template/test.png");
+imagecopy($img, $im2, (imagesx($img)/2)-(imagesx($im2)/2), (imagesy($img)/2)-(imagesy($im2)/2), 0, 0, imagesx($im2), imagesy($im2));
+imagepng($img,"./user"."_m.png",9);
+imagedestroy($img);
+imagedestroy($im2);
 
 
+//$ch = "curl -v -X "." GET ".$strUrl." -H '"."$header'";
+//$ch = "curl -v -X "." GET ".$strUrl." -o ".$imgId.".png "." -H '"."$header'";
+//exec($ch,$output,$code);
+//echo "\n".$code;
+//header("Content-type: image/png");
+// $img = imagecreatefromstring($output);
+// imagepng($img);
+// imagedestroy($img); 
 $conn->close();

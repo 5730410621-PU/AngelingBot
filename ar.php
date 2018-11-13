@@ -59,10 +59,26 @@ function memeImage($id,$imgId,$header,$option){
     $ch = "curl -v -X "." GET ".$strUrl." -H '"."$header'";
     //$ch = "curl -v -X "." GET ".$strUrl." -o http://sheltered-refuge-45467.herokuapp.com/meme/userImg/".$imgId.".png "." -H '"."$header'";
     //$ch = "curl -v -X "." GET ".$strUrl." -o meme/userImg/".$imgId.".png "." -H '$header'";
-    //$ch = "curl -v -X "." GET "."https://api.line.me/v2/bot/message/8851795270041/content"." -o meme/userImg/"."8851795270041".".png "." -H '"."Authorization: Bearer uUE/X13a2XpVT0CAFsl+x3PTTxcFwHvYsrF2Mg8Vt5LAwEI8/v6To55m+cDqoj8iKTYQ9QHndnGYHRuB3ZXwGSwsAmoKcNzS1nWx1vGZ3vPp3KNwi0eWuxSz4AfkuH0fP2wUt5pwgfZsCKZRJp52CgdB04t89/1O/w1cDnyilFU='";
-    exec($ch,$output,$code);
-    $img = base64_decode($output);
-    imagepng($im,"./meme/userImg/$imgId".".png",9);
+    $ch = curl_init();
+    $c_options =  array(
+        CURLOPT_URL => $strUrl,
+        CURLOPT_HTTPHEADER => array($header, 'Content-type: image/png'),
+        CURLOPT_ENCODING => "",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HTTPGET => true,
+        CURLOPT_CONNECTTIMEOUT => 60,
+        CURLOPT_TIMEOUT => 60
+    );
+    curl_setopt_array($ch, $c_options);
+    $response = curl_exec($ch);
+    $img = imagecreatefromstring($response);
+    imagepng($img,"./user.png",9);
+    
+    $im2 = imagecreatefrompng("./meme/template/test.png");
+    imagecopy($img, $im2, (imagesx($img)/2)-(imagesx($im2)/2), (imagesy($img)/2)-(imagesy($im2)/2), 0, 0, imagesx($im2), imagesy($im2));
+    imagepng($img,"./user"."_m.png",9);
+    imagedestroy($img);
+    imagedestroy($im2);
 
     return $code;
     
