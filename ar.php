@@ -1,7 +1,6 @@
 <?php
 
-
-function arManagement($conn,$id,$state,$message,$header,$gid,$type){
+function arManagement($id,$state,$message,$header,$gid,$type){
     $conn = sql();
 
     if($state == 0){
@@ -63,7 +62,6 @@ function arManagement($conn,$id,$state,$message,$header,$gid,$type){
 }
 
 function memeImage($id,$imgId,$header,$option){
-    $conn = sql();
 
     $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
     $ch = "curl -v -X "." GET ".$strUrl." -H '"."$header'";
@@ -115,10 +113,10 @@ function memeImage($id,$imgId,$header,$option){
     imagedestroy($im2);
     imagedestroy($overImage);
 
+    $conn = sql();
     $sql = "UPDATE meme_log SET src_path = '$src_path',des_path = '$des_path' WHERE u_id = '$id'";
     $conn->query($sql);
-    
-
+    $conn->close();
 }
 
 
