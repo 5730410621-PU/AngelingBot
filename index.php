@@ -55,7 +55,7 @@ if ($conn->query($sql) === TRUE) {
 echo $result;
 */
 
-/*
+
 
 $count = 0;
 $sql = "SELECT * FROM open_session";
@@ -70,7 +70,7 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 result"."<br>";
 }
-*/
+
  
 
 $sql = "SELECT * FROM meme_log";
@@ -89,9 +89,9 @@ if ($result->num_rows > 0) {
 //echo "Result :: ".scandir('/app');
 
 
-
 /*
-$sql = "DELETE FROM open_session WHERE status IN ('1')";
+
+$sql = "DELETE FROM open_session WHERE status IN ('0')";
 if ($conn->query($sql) === TRUE) {
     $result =  "Delete complete!!";
 } else {
@@ -101,7 +101,7 @@ echo $result;
 
 
 
-$sql = "DELETE FROM log WHERE type IN ('message')";
+$sql = "DELETE FROM meme_log WHERE options IN ('1')";
 if ($conn->query($sql) === TRUE) {
     $result =  "Delete complete!!";
 } else {
