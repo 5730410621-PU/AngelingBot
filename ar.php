@@ -71,7 +71,7 @@ function memeImage($id,$imgId,$header,$option){
     curl_setopt_array($ch, $c_options);
     $response = curl_exec($ch);
     $img = imagecreatefromstring($response);
-    imagepng($img,"./user.png",9);
+    imagepng($img,"./meme/userImg/$imgId.png",9);
     $bgWidth = imagesx($img);
     $bgHeight = imagesy($img);
 
@@ -91,7 +91,7 @@ function memeImage($id,$imgId,$header,$option){
         imagecopy($img,$im2,($bgWidth-$overWidth)/2,$bgHeight-$overHeight,0,0,$overWidth,$overHeight);
     }
 
-    imagepng($img,"./user"."_m.png",9);
+    imagepng($img,"./meme/updateImage/$imgId"."_m.png",9);
     imagedestroy($img);
     imagedestroy($im2);
     imagedestroy($overImage);

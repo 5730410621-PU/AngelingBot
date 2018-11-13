@@ -158,7 +158,7 @@ imagedestroy($im);
 imagedestroy($im2);
 */
 
-
+/*
 $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
 
 $ch = curl_init();
@@ -197,10 +197,9 @@ if($overWidth > $bgWidth){
 else{
     imagecopy($img,$im2,($bgWidth-$overWidth)/2,$bgHeight-$overHeight,0,0,$overWidth,$overHeight);
 }
-
 imagepng($img,"./user"."_m.png",9);
 
-
+*/
 
 
 
