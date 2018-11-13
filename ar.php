@@ -35,22 +35,25 @@ function arManagement($conn,$id,$state,$message,$header,$gid){
         $sql = "SELECT * FROM meme_log WHERE image_id='0' ORDER BY time DESC limit 1";
         $imgId0 = $conn->query($sql);
         $row = $imgId0->fetch_assoc();
-        $options =$row["options"];
+        $option =$row["options"];
 
         if($options != null){
             $sql = "UPDATE meme_log SET image_id = '$message' WHERE u_id = '$id' AND image_id = '0'";
             $conn->query($sql);
             
+           // memeImage($id,$message,$header,$options);
+
             $dateNow = date("Y-m-d H:i:s");
             $sql = "UPDATE open_session SET end_time = '$dateNow' ,status = '0' WHERE u_id = '$id' AND status = '1'";
             $conn->query($sql);
-            return "ร่วมสนุกกับทางเราได้ทาง xxxx โดยการแชร์รูปของท่านจากในเพจเพื่อลุ้นรับเสื้อเพจจำนวน 10 รางวัล หมดเขต 31 ธ.ค. นี้";
+            //return "ร่วมสนุกกับทางเราได้ทาง xxxx โดยการแชร์รูปของท่านจากในเพจเพื่อลุ้นรับเสื้อเพจจำนวน 10 รางวัล หมดเขต 31 ธ.ค. นี้";
+            return  memeImage($id,$message,$header,$option);
         }
   
     }     
 }
 
-function storeUserImage($id,$imgId,$header){
+function memeImage($id,$imgId,$header,$option){
 
     $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
     $ch = "curl -v -X "." GET ".$strUrl." -H '"."$header'";
@@ -58,7 +61,9 @@ function storeUserImage($id,$imgId,$header){
     //$ch = "curl -v -X "." GET ".$strUrl." -o meme/userImg/".$imgId.".png "." -H '$header'";
     //$ch = "curl -v -X "." GET "."https://api.line.me/v2/bot/message/8851795270041/content"." -o meme/userImg/"."8851795270041".".png "." -H '"."Authorization: Bearer uUE/X13a2XpVT0CAFsl+x3PTTxcFwHvYsrF2Mg8Vt5LAwEI8/v6To55m+cDqoj8iKTYQ9QHndnGYHRuB3ZXwGSwsAmoKcNzS1nWx1vGZ3vPp3KNwi0eWuxSz4AfkuH0fP2wUt5pwgfZsCKZRJp52CgdB04t89/1O/w1cDnyilFU='";
     exec($ch,$output,$code);
-    
+    $img = base64_decode($output);
+    imagepng($im,"./meme/userImg/$imgId".".png",9);
+
     return $code;
     
 }
