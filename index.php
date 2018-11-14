@@ -221,6 +221,6 @@ imagedestroy($im2);
 */
 
 $imgId = "background";
-posttoFacebook($imgId);
+//posttoFacebook($imgId);
 
 $conn->close();
