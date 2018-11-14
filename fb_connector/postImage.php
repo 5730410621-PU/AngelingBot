@@ -65,12 +65,14 @@ if (!isset($accessToken)) {
     $imgId = $_SESSION['imgId'];
     echo "<br>".$imgId;
     
+    $imgPath= "https://young-atoll-65673.herokuapp.com/meme/updateImage/$imgId"."_m.png";
+    
     try {
     // Returns a `Facebook\FacebookResponse` object
     $response = $fb->post(
       "/$pageId/photos",
       array (
-        'url' => "https://young-atoll-65673.herokuapp.com/meme/updateImage/$imgId"."_m.png",
+        'url' => $imgPath,
         'published' => 'true'
       ),
       $pageAccessToken
