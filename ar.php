@@ -57,7 +57,7 @@ function arManagement($id,$state,$message,$header,$gid,$type){
                 $imgPath= " https://young-atoll-65673.herokuapp.com/meme/updateImage/$message"."_m.png"; 
 
                 $check = "";
-                while (!file_exists($imgPath)) { 
+                while (!is_url_exist($imgPath)) { 
                     $check =$check."x";
                     sleep(1);
                 }
@@ -154,4 +154,19 @@ function posttoFacebook($imgId){
    // echo  htmlspecialchars($loginUrl);
     $_SESSION['imgId'] = $imgId;
     header("Location:".$loginUrl);
+}
+
+function is_url_exist($url){
+    $ch = curl_init($url);    
+    curl_setopt($ch, CURLOPT_NOBODY, true);
+    curl_exec($ch);
+    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+    if($code == 200){
+       $status = true;
+    }else{
+      $status = false;
+    }
+    curl_close($ch);
+   return $status;
 }
