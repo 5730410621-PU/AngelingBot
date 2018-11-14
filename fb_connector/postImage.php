@@ -60,18 +60,16 @@ if (!isset($accessToken)) {
     echo $pageAccessToken;
     //var_dump($pages);
 
-    
+
 //////////// ---- Post on Feeds page ---- /////////////////
 
     $imgId = $_SESSION['imgId'];
     echo "<br>".$imgId;
-
-    $imgPath= "https://young-atoll-65673.herokuapp.com/meme/updateImage/$imgId"."_m.png";
-    while (!file_get_contents($imgPath)) {
-        
+    $imgPath= "./../meme/updateImage/$imgId"."_m.png";
+    
+    while (!file_exists($imgPath)) { 
         sleep(1);
     }
-    
     try {
     // Returns a `Facebook\FacebookResponse` object
     $response = $fb->post(
@@ -90,5 +88,7 @@ if (!isset($accessToken)) {
         exit;
     }
     $graphNode = $response->getGraphNode();
+    
+    
     
     

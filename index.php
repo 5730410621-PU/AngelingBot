@@ -220,7 +220,15 @@ imagedestroy($img);
 imagedestroy($im2);
 */
 
-$imgId = "background";
+
 //posttoFacebook($imgId);
+
+
+$accessToken = 'uUE/X13a2XpVT0CAFsl+x3PTTxcFwHvYsrF2Mg8Vt5LAwEI8/v6To55m+cDqoj8iKTYQ9QHndnGYHRuB3ZXwGSwsAmoKcNzS1nWx1vGZ3vPp3KNwi0eWuxSz4AfkuH0fP2wUt5pwgfZsCKZRJp52CgdB04t89/1O/w1cDnyilFU=';
+$imgId = "8856260297307";
+$header = "Authorization: Bearer {$accessToken}";
+$option = "2";
+
+//memeImage($id,$imgId,$header,$option);
 
 $conn->close();
