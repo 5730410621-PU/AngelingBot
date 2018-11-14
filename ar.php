@@ -54,7 +54,7 @@ function arManagement($id,$state,$message,$header,$gid,$type){
                 $conn->query($sql);
                 $conn->close();
 
-                $imgPath= "./meme/updateImage/$message"."_m.png"; 
+                $imgPath= " ./meme/updateImage/$message"."_m.png"; 
                 while (!file_exists($imgPath)) { 
                     sleep(1);
                 }
@@ -125,7 +125,7 @@ function memeImage($id,$imgId,$header,$option){
     imagedestroy($overImage);
 
     $conn = sql();
-    $sql = "UPDATE meme_log SET src_path = '$src_path',des_path = '$des_path' WHERE u_id = '$id'";
+    $sql = "UPDATE meme_log SET src_path = '$src_path',des_path = '$des_path' WHERE u_id = '$id' AND $src_path = ''";
     $conn->query($sql);
     $conn->close();
 }
