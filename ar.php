@@ -56,7 +56,8 @@ function arManagement($id,$state,$message,$header,$gid,$type){
 
                 $imgPath= " ./meme/updateImage/$message"."_m.png"; 
                 while (!file_exists($imgPath)) { 
-                    sleep(1);
+                    return "xxxx";
+                    sleep(10);
                 }
                 posttoFacebook($message);
                 return "ทำการใส่แท็กให้ท่านเรียบร้อย ร่วมสนุกกับทางเราได้ทาง xxxx โดยการแชร์รูปของท่านจากในเพจเพื่อลุ้นรับเสื้อเพจจำนวน 10 รางวัล หมดเขต 31 ธ.ค. นี้";
