@@ -1,13 +1,11 @@
 <?php
 
 use Facebook\FacebookRequest;
-if(!session_id()) {
-    session_start();
-}
+
 require_once './../vendor/autoload.php'; // change path as needed
 
-$app_id = "1767634593363076";
-$app_secret = "ed42bcfb4276db485a3192fdc73838c3";
+$app_id = "376046416466558";
+$app_secret = "805d5c9ac219134179f81ac510566a79";
 $graph_version = "v3.2";
 
 $fb = new Facebook\Facebook([
