@@ -63,7 +63,8 @@ if (!isset($accessToken)) {
 //////////// ---- Post on Feeds page ---- /////////////////
 
     $imgId = $_SESSION['imgId'];
-
+    echo $imgId;
+    /*
     try {
     // Returns a `Facebook\FacebookResponse` object
     $response = $fb->post(
@@ -82,3 +83,4 @@ if (!isset($accessToken)) {
         exit;
     }
     $graphNode = $response->getGraphNode();
+    */

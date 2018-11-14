@@ -124,7 +124,7 @@ function memeImage($id,$imgId,$header,$option){
     $conn->query($sql);
     $conn->close();
 }
-posttoFacebook("123412312");
+//posttoFacebook("123412312");
 
 
 function posttoFacebook($imgId){
@@ -142,9 +142,9 @@ function posttoFacebook($imgId){
     $helper = $fb->getRedirectLoginHelper();
     
     $permissions = ['pages_show_list','publish_pages','manage_pages']; // Optional permissions
-   //$loginUrl = $helper->getLoginUrl('http://localhost/AngelingBot/fb_connector/postImage.php',$permissions);
+    //$loginUrl = $helper->getLoginUrl('http://localhost/AngelingBot/fb_connector/postImage.php',$permissions);
     $loginUrl = $helper->getLoginUrl('https://young-atoll-65673.herokuapp.com/fb_connector/postImage.php/',$permissions);
    // echo  htmlspecialchars($loginUrl);
-    $_SESSION['imgId'] = $imgId;
+    //$_SESSION['imgId'] = $imgId;
     header("Location:".$loginUrl);
 }
