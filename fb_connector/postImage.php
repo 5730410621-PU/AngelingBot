@@ -1,7 +1,9 @@
 <?php
 
 use Facebook\FacebookRequest;
-session_start();
+if(!session_id()) {
+    session_start();
+}
 require_once './../vendor/autoload.php'; // change path as needed
 
 $app_id = "1767634593363076";
