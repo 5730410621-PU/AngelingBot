@@ -55,12 +55,15 @@ function arManagement($id,$state,$message,$header,$gid,$type){
                 $conn->close();
 
                 $imgPath= " ./meme/updateImage/$message"."_m.png"; 
+
+                $check = "";
                 while (!file_exists($imgPath)) { 
-                    return "xxxx";
-                    sleep(10);
+                    $check =$check."x";
+                    sleep(1);
                 }
-                posttoFacebook($message);
-                return "ทำการใส่แท็กให้ท่านเรียบร้อย ร่วมสนุกกับทางเราได้ทาง xxxx โดยการแชร์รูปของท่านจากในเพจเพื่อลุ้นรับเสื้อเพจจำนวน 10 รางวัล หมดเขต 31 ธ.ค. นี้";
+                //posttoFacebook($message);
+                return $check;
+                //return "ทำการใส่แท็กให้ท่านเรียบร้อย ร่วมสนุกกับทางเราได้ทาง xxxx โดยการแชร์รูปของท่านจากในเพจเพื่อลุ้นรับเสื้อเพจจำนวน 10 รางวัล หมดเขต 31 ธ.ค. นี้";
                 //return  memeImage($id,$message,$header,$option);
             }
         }
