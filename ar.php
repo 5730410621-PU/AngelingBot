@@ -1,7 +1,9 @@
 <?php
 
 require_once './vendor/autoload.php'; // change path as needed
-
+if(!session_id()) {
+    session_start();
+}
 function arManagement($id,$state,$message,$header,$gid,$type){
     $conn = sql();
 
@@ -126,9 +128,7 @@ posttoFacebook("123412312");
 
 
 function posttoFacebook($imgId){
-    if(!session_id()) {
-        session_start();
-    }
+
     $app_id = "376046416466558";
     $app_secret = "805d5c9ac219134179f81ac510566a79";
     $graph_version = "v3.2";
@@ -142,8 +142,8 @@ function posttoFacebook($imgId){
     $helper = $fb->getRedirectLoginHelper();
     
     $permissions = ['pages_show_list','publish_pages','manage_pages']; // Optional permissions
-    //$loginUrl = $helper->getLoginUrl('https://localhost/AngelingBot/fb_connector/postImage.php',$permissions);
-    $loginUrl = $helper->getLoginUrl('https://young-atoll-65673.herokuapp.com/fb_connector/postImage.php/',$permissions);
+    $loginUrl = $helper->getLoginUrl('http://localhost/AngelingBot/fb_connector/postImage.php',$permissions);
+   // $loginUrl = $helper->getLoginUrl('https://young-atoll-65673.herokuapp.com/fb_connector/postImage.php/',$permissions);
    // echo  htmlspecialchars($loginUrl);
     //$_SESSION['imgId'] = $imgId;
     header("Location:".$loginUrl);
