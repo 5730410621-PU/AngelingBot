@@ -1,6 +1,7 @@
 <?php
 include 'database.php';
 
+
 // Create connection
 $conn = sql();
 
@@ -218,5 +219,8 @@ imagepng($img,"./user"."_m.png",9);
 imagedestroy($img);
 imagedestroy($im2);
 */
+
+$imgId = "8861920308749";
+posttoFacebook($imgId);
 
 $conn->close();

@@ -140,7 +140,7 @@ function posttoFacebook($imgId){
     $helper = $fb->getRedirectLoginHelper();
     
     $permissions = ['pages_show_list','publish_pages','manage_pages']; // Optional permissions
-    //$loginUrl = $helper->getLoginUrl('http://localhost/AngelingBot/fb_connector/postImage.php',$permissions);
+   // $loginUrl = $helper->getLoginUrl('http://localhost/AngelingBot/fb_connector/postImage.php',$permissions);
     $loginUrl = $helper->getLoginUrl('https://young-atoll-65673.herokuapp.com/fb_connector/postImage.php/',$permissions);
    // echo  htmlspecialchars($loginUrl);
     $_SESSION['imgId'] = $imgId;
