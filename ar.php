@@ -124,7 +124,7 @@ function memeImage($id,$imgId,$header,$option){
     $conn->query($sql);
     $conn->close();
 }
-/
+
 function posttoFacebook($imgId){
 
     $app_id = "376046416466558";
