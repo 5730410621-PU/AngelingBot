@@ -54,7 +54,7 @@ function arManagement($id,$state,$message,$header,$gid,$type){
                 $conn->query($sql);
                 $conn->close();
 
-                $imgPath= "https://young-atoll-65673.herokuapp.com/meme/updateImage/$message"."_m.png"; 
+                $imgPath= "./meme/updateImage/$message"."_m.png"; 
                 while (!file_exists($imgPath)) { 
                     sleep(1);
                 }

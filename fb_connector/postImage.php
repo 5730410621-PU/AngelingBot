@@ -66,10 +66,7 @@ if (!isset($accessToken)) {
     $imgId = $_SESSION['imgId'];
     echo "<br>".$imgId;
     $imgPath= "https://young-atoll-65673.herokuapp.com/meme/updateImage/$imgId"."_m.png";
-    
-    while (!file_exists($imgPath)) { 
-        sleep(1);
-    }
+     
     try {
     // Returns a `Facebook\FacebookResponse` object
     $response = $fb->post(
