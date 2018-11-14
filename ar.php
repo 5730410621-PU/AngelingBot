@@ -1,5 +1,8 @@
 <?php
 
+session_start();
+require_once './vendor/autoload.php'; // change path as needed
+
 function arManagement($id,$state,$message,$header,$gid,$type){
     $conn = sql();
 
@@ -49,6 +52,8 @@ function arManagement($id,$state,$message,$header,$gid,$type){
                 $sql = "UPDATE open_session SET end_time = '$dateNow' ,status = '0' WHERE u_id = '$id' AND status = '1'";
                 $conn->query($sql);
                 $conn->close();
+
+                posttoFacebook($message);
                 return "ทำการใส่แท็กให้ท่านเรียบร้อย ร่วมสนุกกับทางเราได้ทาง xxxx โดยการแชร์รูปของท่านจากในเพจเพื่อลุ้นรับเสื้อเพจจำนวน 10 รางวัล หมดเขต 31 ธ.ค. นี้";
                 //return  memeImage($id,$message,$header,$option);
             }
@@ -119,4 +124,23 @@ function memeImage($id,$imgId,$header,$option){
     $conn->close();
 }
 
+function posttoFacebook($imgId){
 
+    $app_id = "376046416466558";
+    $app_secret = "805d5c9ac219134179f81ac510566a79";
+    $graph_version = "v3.2";
+
+    $fb = new Facebook\Facebook([
+        'app_id' => $app_id, // Replace {app-id} with your app id
+        'app_secret' => $app_secret,
+        'default_graph_version' => $graph_version,
+        ]);
+    
+    $helper = $fb->getRedirectLoginHelper();
+    
+    $permissions = ['pages_show_list','publish_pages','manage_pages']; // Optional permissions
+    $loginUrl = $helper->getLoginUrl('./fb_connector/postImage.php',$permissions);
+    
+    $_SESSION['imgId'] = $imgId;
+    header("Location:".$loginUrl);
+}

@@ -2,12 +2,12 @@
 
 /////// Add RichMenu Image  /////////////
 
-curl -v -X POST https://api.line.me/v2/bot/richmenu/richmenu-3cab2b0aebde5256deb358775b95e2d0/content -H "Authorization: Bearer uUE/X13a2XpVT0CAFsl+x3PTTxcFwHvYsrF2Mg8Vt5LAwEI8/v6To55m+cDqoj8iKTYQ9QHndnGYHRuB3ZXwGSwsAmoKcNzS1nWx1vGZ3vPp3KNwi0eWuxSz4AfkuH0fP2wUt5pwgfZsCKZRJp52CgdB04t89/1O/w1cDnyilFU=" -H "Content-Type: image/jpeg" -T appinline.jpg
+curl -v -X POST https://api.line.me/v2/bot/richmenu/richmenu-ccdcd42079c564c0e7b2e829c2fdb4c1/content -H "Authorization: Bearer uUE/X13a2XpVT0CAFsl+x3PTTxcFwHvYsrF2Mg8Vt5LAwEI8/v6To55m+cDqoj8iKTYQ9QHndnGYHRuB3ZXwGSwsAmoKcNzS1nWx1vGZ3vPp3KNwi0eWuxSz4AfkuH0fP2wUt5pwgfZsCKZRJp52CgdB04t89/1O/w1cDnyilFU=" -H "Content-Type: image/jpeg" -T appinline_design.png
 
 
 
 //////// Delete RIch Menu ///////////////////////////
-curl -v -X DELETE https://api.line.me/v2/bot/richmenu/richmenu-39386b240961b5c562f6914a88d59e0b -H "Authorization: Bearer uUE/X13a2XpVT0CAFsl+x3PTTxcFwHvYsrF2Mg8Vt5LAwEI8/v6To55m+cDqoj8iKTYQ9QHndnGYHRuB3ZXwGSwsAmoKcNzS1nWx1vGZ3vPp3KNwi0eWuxSz4AfkuH0fP2wUt5pwgfZsCKZRJp52CgdB04t89/1O/w1cDnyilFU="
+curl -v -X DELETE https://api.line.me/v2/bot/richmenu/richmenu-69de6fc77e56a1c4f9ae1fad4a8fa25e -H "Authorization: Bearer uUE/X13a2XpVT0CAFsl+x3PTTxcFwHvYsrF2Mg8Vt5LAwEI8/v6To55m+cDqoj8iKTYQ9QHndnGYHRuB3ZXwGSwsAmoKcNzS1nWx1vGZ3vPp3KNwi0eWuxSz4AfkuH0fP2wUt5pwgfZsCKZRJp52CgdB04t89/1O/w1cDnyilFU="
 
 
 //////// LIFF app in line //////////////////////////
