@@ -57,7 +57,6 @@ echo $result;
 */
 
 
-
 $count = 0;
 $sql = "SELECT * FROM open_session";
 $result =  $conn->query($sql);
@@ -92,7 +91,7 @@ if ($result->num_rows > 0) {
 
 
 /*
-$sql = "DELETE FROM open_session WHERE status IN ('1')";
+$sql = "DELETE FROM open_session WHERE status IN ('0')";
 if ($conn->query($sql) === TRUE) {
     $result =  "Delete complete!!";
 } else {
@@ -101,7 +100,7 @@ if ($conn->query($sql) === TRUE) {
 echo $result;
 
 
-$sql = "DELETE FROM meme_log WHERE options IN ('2')";
+$sql = "DELETE FROM meme_log WHERE options IN ('1')";
 if ($conn->query($sql) === TRUE) {
     $result =  "Delete complete!!";
 } else {
@@ -223,12 +222,18 @@ imagedestroy($im2);
 
 //posttoFacebook($imgId);
 
-
+/*
 $accessToken = 'uUE/X13a2XpVT0CAFsl+x3PTTxcFwHvYsrF2Mg8Vt5LAwEI8/v6To55m+cDqoj8iKTYQ9QHndnGYHRuB3ZXwGSwsAmoKcNzS1nWx1vGZ3vPp3KNwi0eWuxSz4AfkuH0fP2wUt5pwgfZsCKZRJp52CgdB04t89/1O/w1cDnyilFU=';
 $imgId = "8856260297307";
 $header = "Authorization: Bearer {$accessToken}";
+$gid = "100000000";
+$type = "image";
 $option = "2";
-
+$state = "1";
 //memeImage($id,$imgId,$header,$option);
+
+echo arManagement($id,$state,$imgId,$header,$gid,$type);
+*/
+
 
 $conn->close();

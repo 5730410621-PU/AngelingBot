@@ -65,7 +65,7 @@ if (!isset($accessToken)) {
 
     $imgId = $_SESSION['imgId'];
     echo "<br>".$imgId;
-    $imgPath= "./../meme/updateImage/$imgId"."_m.png";
+    $imgPath= "https://young-atoll-65673.herokuapp.com/meme/updateImage/$imgId"."_m.png";
     
     while (!file_exists($imgPath)) { 
         sleep(1);

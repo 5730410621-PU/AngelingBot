@@ -54,8 +54,12 @@ function arManagement($id,$state,$message,$header,$gid,$type){
                 $conn->query($sql);
                 $conn->close();
 
+                $imgPath= "https://young-atoll-65673.herokuapp.com/meme/updateImage/$message"."_m.png"; 
+                while (!file_exists($imgPath)) { 
+                    sleep(1);
+                }
                 posttoFacebook($message);
-               // return "ทำการใส่แท็กให้ท่านเรียบร้อย ร่วมสนุกกับทางเราได้ทาง xxxx โดยการแชร์รูปของท่านจากในเพจเพื่อลุ้นรับเสื้อเพจจำนวน 10 รางวัล หมดเขต 31 ธ.ค. นี้";
+                return "ทำการใส่แท็กให้ท่านเรียบร้อย ร่วมสนุกกับทางเราได้ทาง xxxx โดยการแชร์รูปของท่านจากในเพจเพื่อลุ้นรับเสื้อเพจจำนวน 10 รางวัล หมดเขต 31 ธ.ค. นี้";
                 //return  memeImage($id,$message,$header,$option);
             }
         }
@@ -141,7 +145,7 @@ function posttoFacebook($imgId){
     $helper = $fb->getRedirectLoginHelper();
     
     $permissions = ['pages_show_list','publish_pages','manage_pages']; // Optional permissions
-  //  $loginUrl = $helper->getLoginUrl('http://localhost/AngelingBot/fb_connector/postImage.php',$permissions);
+    //$loginUrl = $helper->getLoginUrl('http://localhost/AngelingBot/fb_connector/postImage.php',$permissions);
     $loginUrl = $helper->getLoginUrl('https://young-atoll-65673.herokuapp.com/fb_connector/postImage.php/',$permissions);
    // echo  htmlspecialchars($loginUrl);
     $_SESSION['imgId'] = $imgId;
