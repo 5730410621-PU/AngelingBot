@@ -54,7 +54,7 @@ function arManagement($id,$state,$message,$header,$gid,$type){
                 $conn->query($sql);
                 $conn->close();
 
-                $imgPath= " ./meme/updateImage/$message"."_m.png"; 
+                $imgPath= " https://young-atoll-65673.herokuapp.com/meme/updateImage/$message"."_m.png"; 
 
                 $check = "";
                 while (!file_exists($imgPath)) { 
@@ -129,7 +129,7 @@ function memeImage($id,$imgId,$header,$option){
     imagedestroy($overImage);
 
     $conn = sql();
-    $sql = "UPDATE meme_log SET src_path = '$src_path',des_path = '$des_path' WHERE u_id = '$id' AND $src_path = ''";
+    $sql = "UPDATE meme_log SET src_path = '$src_path',des_path = '$des_path' WHERE u_id = '$id' AND $src_path = null";
     $conn->query($sql);
     $conn->close();
 }
