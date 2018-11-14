@@ -220,7 +220,7 @@ imagedestroy($img);
 imagedestroy($im2);
 */
 
-$imgId = "8861920308749";
+$imgId = "background";
 posttoFacebook($imgId);
 
 $conn->close();
