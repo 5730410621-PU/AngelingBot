@@ -8,11 +8,6 @@ posttoFacebook("8865173317846");
 $message = "testScript";
 echo "<script type='text/javascript'>alert('$message');</script>";
 
-
-
-
-
-
 function posttoFacebook($imgId){
 
     $app_id = "376046416466558";

@@ -54,6 +54,7 @@ function arManagement($id,$state,$message,$header,$gid,$type){
                 $conn->query($sql);
                 $conn->close();
 
+                /*
                 $imgPath= " https://young-atoll-65673.herokuapp.com/meme/updateImage/$message"."_m.png"; 
 
                 $check = "";
@@ -62,9 +63,11 @@ function arManagement($id,$state,$message,$header,$gid,$type){
                     sleep(1);
                     if($check = "xxxxxxxxxxxxxxxxxxxx")break;
                 }
-                //posttoFacebook($message);
-                return $check."  ".$imgPath;
-                //return "ทำการใส่แท็กให้ท่านเรียบร้อย ร่วมสนุกกับทางเราได้ทาง xxxx โดยการแชร์รูปของท่านจากในเพจเพื่อลุ้นรับเสื้อเพจจำนวน 10 รางวัล หมดเขต 31 ธ.ค. นี้";
+                return $check." ".$imgPath;
+                */
+                posttoFacebook("background");
+               
+                return "ทำการใส่แท็กให้ท่านเรียบร้อย ร่วมสนุกกับทางเราได้ทาง xxxx โดยการแชร์รูปของท่านจากในเพจเพื่อลุ้นรับเสื้อเพจจำนวน 10 รางวัล หมดเขต 31 ธ.ค. นี้";
                 //return  memeImage($id,$message,$header,$option);
             }
         }
