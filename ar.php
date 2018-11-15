@@ -60,6 +60,7 @@ function arManagement($id,$state,$message,$header,$gid,$type){
                 while (!is_url_exist($imgPath)) { 
                     $check =$check."x";
                     sleep(1);
+                    if($check = "xxxxxxxxxxxxxxxxxxxx")break;
                 }
                 //posttoFacebook($message);
                 return $check;
@@ -129,7 +130,7 @@ function memeImage($id,$imgId,$header,$option){
     imagedestroy($overImage);
 
     $conn = sql();
-    $sql = "UPDATE meme_log SET src_path = '$src_path',des_path = '$des_path' WHERE u_id = '$id' AND image_id = $imgId";
+    $sql = "UPDATE meme_log SET src_path = '$src_path',des_path = '$des_path' WHERE u_id = '$id' AND image_id = '$imgId' ";
     $conn->query($sql);
     $conn->close();
 }
