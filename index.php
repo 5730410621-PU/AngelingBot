@@ -85,11 +85,6 @@ if ($result->num_rows > 0) {
     echo "0 result";
 }
 
-
-
-//echo "Result :: ".scandir('/app');
-
-
 /*
 $sql = "DELETE FROM open_session WHERE status IN ('0')";
 if ($conn->query($sql) === TRUE) {
@@ -129,79 +124,6 @@ if($linkId->num_rows > 0){
 */
 
 
-$accessToken = 'uUE/X13a2XpVT0CAFsl+x3PTTxcFwHvYsrF2Mg8Vt5LAwEI8/v6To55m+cDqoj8iKTYQ9QHndnGYHRuB3ZXwGSwsAmoKcNzS1nWx1vGZ3vPp3KNwi0eWuxSz4AfkuH0fP2wUt5pwgfZsCKZRJp52CgdB04t89/1O/w1cDnyilFU=';
-$imgId = "8856260297307";
-$header = "Authorization: Bearer {$accessToken}";
-/*
-$strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
-//$ch = "curl -v -X "." GET ".$strUrl." -o ".$imgId.".png "." -H '"."$accessHeader'";
-//$ch = "curl -v -X "." GET ".$strUrl." -H '"."$accessHeader'";
-//$ch = "curl -v -X "." GET ".$strUrl." -o http://sheltered-refuge-45467.herokuapp.com/meme/userImg/".$imgId.".png "." -H '"."$header'";
-//exec($ch,$output,$result);
-
-$ch = "curl -v -X "." GET "."https://api.line.me/v2/bot/message/8851169895483/content"." -o meme/userImg/"."8851169895483".".png "." -H '"."Authorization: Bearer uUE/X13a2XpVT0CAFsl+x3PTTxcFwHvYsrF2Mg8Vt5LAwEI8/v6To55m+cDqoj8iKTYQ9QHndnGYHRuB3ZXwGSwsAmoKcNzS1nWx1vGZ3vPp3KNwi0eWuxSz4AfkuH0fP2wUt5pwgfZsCKZRJp52CgdB04t89/1O/w1cDnyilFU='";
-exec($ch,$output,$result);
-echo $result;
-
-*/
-
-/*
-$overlayImage='./meme/template/test.png'; 
-$backgroundImage="./meme/userImg/unusedImage.jpg";
-
-$im = imagecreatefromjpeg($backgroundImage);
-$im2 = imagecreatefrompng($overlayImage);
-
-imagecopy($im, $im2, (imagesx($im)/2)-(imagesx($im2)/2), (imagesy($im)/2)-(imagesy($im2)/2), 0, 0, imagesx($im2), imagesy($im2));
-
-imagepng($im,"./meme/updateImage/test1234"."_m.png",9);
-imagedestroy($im);
-imagedestroy($im2);
-*/
-
-/*
-$strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
-
-$ch = curl_init();
-$options =  array(
-
-    CURLOPT_URL => $strUrl,
-    CURLOPT_HTTPHEADER => array($header, 'Content-type: image/png'),
-    CURLOPT_ENCODING => "",
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_HTTPGET => true,
-    CURLOPT_CONNECTTIMEOUT => 60,
-    CURLOPT_TIMEOUT => 60
-
-);
-curl_setopt_array($ch, $options);
-$response = curl_exec($ch);
-$img = imagecreatefromstring($response);
-
-echo "<br>\n";
-imagepng($img,"./user".".png",9);
-$bgWidth = imagesx($img);
-$bgHeight = imagesy($img);
-
-$im2 = imagecreatefrompng("./meme/template/banner.png");
-$overWidth = imagesx($im2);
-$overHeight = imagesy($im2);
-
-if($overWidth > $bgWidth){
-    $newWidth = $bgWidth;
-    $ratio = $newWidth/$overWidth;
-    $newHeight = round($overHeight*$ratio);
-    $overImage = imagecreatetruecolor($newWidth, $newHeight);
-    imagecopyresampled($overImage,$im2, 0, 0, 0, 0, $newWidth, $newHeight, $overWidth, $overHeight);
-    imagecopy($img,$overImage,($bgWidth-$newWidth)/2,$bgHeight-$newHeight,0,0,$newWidth,$newHeight);
-}
-else{
-    imagecopy($img,$im2,($bgWidth-$overWidth)/2,$bgHeight-$overHeight,0,0,$overWidth,$overHeight);
-}
-imagepng($img,"./user"."_m.png",9);
-
-*/
-
 /*
 $sql ="ALTER TABLE meme_log ADD COLUMN des_path VARCHAR(45)";
 if ($conn->query($sql) === TRUE) {
@@ -211,13 +133,11 @@ if ($conn->query($sql) === TRUE) {
 }
 echo $result;
 */
-/*
-$im2 = imagecreatefrompng("./meme/template/test.png");
-imagecopy($img, $im2, (imagesx($img)/2)-(imagesx($im2)/2), (imagesy($img)/2)-(imagesy($im2)/2), 0, 0, imagesx($im2), imagesy($im2));
-imagepng($img,"./user"."_m.png",9);
-imagedestroy($img);
-imagedestroy($im2);
-*/
+
+
+$accessToken = 'uUE/X13a2XpVT0CAFsl+x3PTTxcFwHvYsrF2Mg8Vt5LAwEI8/v6To55m+cDqoj8iKTYQ9QHndnGYHRuB3ZXwGSwsAmoKcNzS1nWx1vGZ3vPp3KNwi0eWuxSz4AfkuH0fP2wUt5pwgfZsCKZRJp52CgdB04t89/1O/w1cDnyilFU=';
+$imgId = "8856260297307";
+$header = "Authorization: Bearer {$accessToken}";
 
 
 //posttoFacebook($imgId);
