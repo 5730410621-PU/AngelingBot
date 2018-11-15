@@ -65,7 +65,7 @@ function arManagement($id,$state,$message,$header,$gid,$type){
                 }
                 return $check." ".$imgPath;
                 */
-                posttoFacebook("background");
+                return posttoFacebook($message);
                
               //  return "ทำการใส่แท็กให้ท่านเรียบร้อย ร่วมสนุกกับทางเราได้ทาง xxxx โดยการแชร์รูปของท่านจากในเพจเพื่อลุ้นรับเสื้อเพจจำนวน 10 รางวัล หมดเขต 31 ธ.ค. นี้";
                 //return  memeImage($id,$message,$header,$option);
