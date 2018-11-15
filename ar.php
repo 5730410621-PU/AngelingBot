@@ -145,7 +145,7 @@ function posttoFacebook($imgId){
     $app_id = "376046416466558";
     $app_secret = "805d5c9ac219134179f81ac510566a79";
     $graph_version = "v3.2";
-    $page_accessToken = "EAAFWAyESkn4BANu7cGwqSSJ5GEiM1RsJen5XgUI9IEg6ERU0RszJUK2kOWCHRolsCy8QZAZC2StLXDLnnwil7Rvnl9AHtOna61iAr31DbN0ZBeZBR5zfr2aZCF77SgGN59VWG3L1U2JUSkISszJfsOSiYqSUwF5KizxlmnTYrgZAPEZBMpZCtzb5";
+    $page_accessToken = "EAAFWAyESkn4BAO8xzFY6sZA6HEtVQKQ71jwzsZB1o4ZAr92ZBdBHdJT2yyoqvzZBhmNodZBjx6nS8BrzqpKaFD04gUmKu1rqPgFCw4HZCEqit8La3nQmDruU9JsFQofQWZBJWNt8xvcavqk2pqKUzL2E5q6lMiMbdcLKtJMyOxPxtgZDZD";
     $page_id = "532532210554118";
 
     $fb = new Facebook\Facebook([
