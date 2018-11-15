@@ -85,8 +85,19 @@ if ($result->num_rows > 0) {
     echo "0 result";
 }
 
+$sql = "SELECT * FROM log";
+$result =  $conn->query($sql);
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<br>"."id: " . $row["id"]." uid: ".$row["u_id"]." gid: ".$row["g_id"]." message: ".$row["message"]." type: ".$row["type"];
+    }
+} else {
+    echo "0 result";
+}
+
 /*
-$sql = "DELETE FROM open_session WHERE status IN ('0')";
+$sql = "DELETE FROM open_session ";
 if ($conn->query($sql) === TRUE) {
     $result =  "Delete complete!!";
 } else {
@@ -95,7 +106,7 @@ if ($conn->query($sql) === TRUE) {
 echo $result;
 
 
-$sql = "DELETE FROM meme_log WHERE options IN ('1')";
+$sql = "DELETE FROM meme_log ";
 if ($conn->query($sql) === TRUE) {
     $result =  "Delete complete!!";
 } else {

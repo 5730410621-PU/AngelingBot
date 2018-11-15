@@ -165,7 +165,7 @@ function posttoFacebook($imgId){
         ),
         $page_accessToken
     );
-    $status = "ทำการใส่แท็กให้ท่านเรียบร้อย ร่วมสนุกกับทางเราได้ทาง xxxx โดยการแชร์รูปของท่านจากในเพจเพื่อลุ้นรับเสื้อเพจจำนวน 10 รางวัล หมดเขต 31 ธ.ค. นี้";
+    $status = "ทำการใส่แท็กให้ท่านเรียบร้อย ร่วมสนุกกับทางเราได้ทาง https://www.facebook.com/เราจะทำตามสัญญาณ-532532210554118/";
     } catch(Facebook\Exceptions\FacebookResponseException $e) {
         $status = 'Graph returned an error: ' . $e->getMessage();
         exit;
