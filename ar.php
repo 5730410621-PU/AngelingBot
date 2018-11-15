@@ -140,6 +140,7 @@ function memeImage($id,$imgId,$header,$option){
 
 
 function posttoFacebook($imgId){
+    
 
     $app_id = "376046416466558";
     $app_secret = "805d5c9ac219134179f81ac510566a79";
@@ -164,14 +165,14 @@ function posttoFacebook($imgId){
         ),
         $page_accessToken
     );
-    return "ทำการใส่แท็กให้ท่านเรียบร้อย ร่วมสนุกกับทางเราได้ทาง xxxx โดยการแชร์รูปของท่านจากในเพจเพื่อลุ้นรับเสื้อเพจจำนวน 10 รางวัล หมดเขต 31 ธ.ค. นี้";
-
+    $status = "ทำการใส่แท็กให้ท่านเรียบร้อย ร่วมสนุกกับทางเราได้ทาง xxxx โดยการแชร์รูปของท่านจากในเพจเพื่อลุ้นรับเสื้อเพจจำนวน 10 รางวัล หมดเขต 31 ธ.ค. นี้";
     } catch(Facebook\Exceptions\FacebookResponseException $e) {
-        return 'Graph returned an error: ' . $e->getMessage();
+        $status = 'Graph returned an error: ' . $e->getMessage();
         exit;
     } catch(Facebook\Exceptions\FacebookSDKException $e) {
-        return 'Facebook SDK returned an error: ' . $e->getMessage();
+        $status = 'Facebook SDK returned an error: ' . $e->getMessage();
         exit;
     }
     $graphNode = $response->getGraphNode();
+    return $status;
 }
